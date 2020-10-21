@@ -16,10 +16,10 @@ class CreateCourseTable extends Migration
         Schema::create('course', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->date('date');
-            $table->string('content');
-            $table->string('program');
-            $table->string('location');
+            $table->date('date')->nullable(true);
+            $table->string('content')->nullable(true);
+            $table->string('program')->nullable(true);
+            $table->string('location')->nullable(true);
             $table->integer('num_student')->default(1);
             $table->boolean('status')->default(true);
         });
