@@ -17,6 +17,7 @@ class CreateEnrollTable extends Migration
             $table->id();
             $table->unsignedBigInteger('class_id');
             $table->unsignedBigInteger('student_id');
+            $table->boolean('status')->default(true);
         });
     }
 
