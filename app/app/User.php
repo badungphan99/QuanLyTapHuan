@@ -2,6 +2,7 @@
 
 namespace App;
 
+use http\Env\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -9,6 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $rememberTokenName = false;
 //
 //    /**
 //     * The attributes that are mass assignable.
@@ -38,6 +41,16 @@ class User extends Authenticatable
         $user->email = $array['email'];
         $user->password = $array['password'];
         $user->save();
+
+        return $user;
+    }
+
+    public static function login(array $array)
+    {
+        $user = new User();
+        $user->where('username', $array['username'])
+            ->where('password', $array['password'])
+            ->first();
 
         return $user;
     }
