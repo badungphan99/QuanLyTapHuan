@@ -44,14 +44,4 @@ class User extends Authenticatable
 
         return $user;
     }
-
-    public static function login(array $array)
-    {
-        $user = new User();
-        $user->where('username', $array['username'])
-            ->where('password', $array['password'])
-            ->first();
-
-        return $user;
-    }
 }
