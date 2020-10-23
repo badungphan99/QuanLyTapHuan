@@ -7,9 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use App\Mail\ResetPassword;
 
 class RegisterController extends Controller
 {
@@ -67,20 +65,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        return User::create([
-//            'fullname' => $data['fullname'],
-//            'username' => $data['username'],
-//            'email' => $data['email'],
-//            'password' => $data['password'],
-//        ]);
         $user = User::create([
             'fullname' => $data['fullname'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => $data['password'],
         ]);
-
-        Mail::to($data['email'])->send(new ResetPassword($user));
 
         return $user;
     }
