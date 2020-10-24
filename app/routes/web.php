@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/list-all-user', 'UserController@listAllUser');
+
+Route::get('/user={username}', 'UserController@getUserByUserName');
+
+Route::get('/disable-user={username}', 'UserController@disableUser');
+
+Route::get('/enable-user={username}', 'UserController@enableUser');
