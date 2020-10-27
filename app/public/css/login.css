@@ -1,0 +1,50 @@
+html{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+
+    background-image: url('../img/stock.png');
+    background-size: cover;
+    height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.container{
+    margin: auto;
+    height: 100vh;
+    justify-content: center;
+
+}
+
+.content{
+    height: 100vh !important;
+    align-items: center !important;
+}
+
+
+
+.card{
+    position: relative;
+    border-radius: 5px;
+    padding: 30px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+
+.card-title{
+    margin: 30px 0;
+}
+
+.btn-forgot{
+    float: right;
+    padding: 0px !important;
+}
+
+a{
+    text-decoration: none;
+    margin: 0px;
+}
