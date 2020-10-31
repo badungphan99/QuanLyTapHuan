@@ -5,16 +5,16 @@ html{
 body{
     font-family: sans-serif;
 
-    background-image: url('../img/stock.png');
+    background-image: url('../img/main_banner.jpg');
     background-size: cover;
     height: 100vh;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.container{
+body .container{
     margin: auto;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: center;
 
 }
@@ -48,3 +48,4 @@ a{
     text-decoration: none;
     margin: 0px;
 }
+
