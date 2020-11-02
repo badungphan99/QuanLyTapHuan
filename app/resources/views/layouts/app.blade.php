@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 <style>
+        main{
+            overflow:auto;
+        }
         .btn-link{
         color: black;
         text-decoration:none !important;
@@ -59,7 +62,7 @@
     <body>
         <nav class="navbar navbar-dark bg-light fixed-top">
             <a href="{{url ('/') }}"><div class="logo">
-                <img src="img/logo.png" alt="Venue Logo">
+                <img src="../img/logo.png" alt="Venue Logo">
             </div></a>
             <!-- <nav id="primary-nav" class="dropdown cf"> -->
                 <ul class="dropdown menu">
@@ -73,10 +76,10 @@
                         @auth
                             <a href="{{ url('/home') }}">Home</a>
                         @else
-                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#loginModal">LOGIN</button></li>
+                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#loginModal">Đăng nhập</button></li>
                             
                             @if (Route::has('register'))
-                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#registerModal">REGISTER</button></li>
+                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#registerModal">Đăng ký</button></li>
                         
                             @endif
                         @endauth
