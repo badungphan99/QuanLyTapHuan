@@ -37,7 +37,6 @@
         color: black;
         text-decoration:none !important;
         }
-
         .modal-content .close{
             transform: translateX(-50%);
             position: relative;
