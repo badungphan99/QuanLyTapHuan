@@ -1,0 +1,54 @@
+html{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+
+    background-image: url('../img/main_banner.jpg');
+    background-size: cover;
+
+}
+
+
+
+
+.card {
+    height: 100vh;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-body h3{
+    text-align: center;
+    margin: 15px 0 30px;
+    
+}
+
+.card-body{
+    position: relative;
+    vertical-align: middle;
+}
+
+
+.card-link{
+    float: right;
+}
+
+.btn-signup{
+    margin-right: 45px;
+    text-align: center;
+}
+
+.btn-signin{
+    text-align: center;
+    margin: 15px 0;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+    .card{
+        margin-left: auto;
+        margin-right: auto;
+        width: 50% !important;
+    }
+}
