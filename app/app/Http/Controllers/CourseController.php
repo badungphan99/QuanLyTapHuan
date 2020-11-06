@@ -102,7 +102,7 @@ class CourseController extends Controller
                   'program' => $program,
                   'location' => $location,
                   'num_student' => $num_student,
-                  'status' => $status],
+                  'status' => $status]
             );
             return redirect('course')->with('status',"Update successfully");
     }
