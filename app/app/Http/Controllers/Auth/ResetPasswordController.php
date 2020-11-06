@@ -50,7 +50,9 @@ class ResetPasswordController extends Controller
             return view('auth.passwords.email')->withInput($request['email'])
                 ->withErrors(['email' => trans("Email not found")]);
         }else{
-            return die(Str::random(10));
+            $passwd = Str::random(10);
+            $user->update(['password' => $passwd]);
+            return die($passwd);
         }
     }
 

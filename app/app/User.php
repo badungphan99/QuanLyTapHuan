@@ -32,6 +32,7 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
     public $timestamps = false;
+    protected $fillable = ['password'];
 
     public static function create(array $array)
     {
@@ -44,4 +45,6 @@ class User extends Authenticatable
 
         return $user;
     }
+
+
 }

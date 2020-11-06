@@ -24,5 +24,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+
+Route::get('/user/show', 'Users\UserController@show')->middleware('auth')->name('user.showinfo');
+Route::post('user/update','Users\UserController@update')->middleware('auth')->name('user.updateInfo');
