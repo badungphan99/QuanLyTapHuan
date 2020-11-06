@@ -32,7 +32,7 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
     public $timestamps = false;
-
+    
     public static function create(array $array)
     {
         $user = new User();

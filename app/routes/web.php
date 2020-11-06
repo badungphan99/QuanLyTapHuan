@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/superAdmin', function () {
-    return view('superAdmin');
-});
+// Route::get('/superAdmin', function () {
+//     return view('superAdmin');
+// });
 
 Auth::routes();
 
@@ -26,3 +26,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
