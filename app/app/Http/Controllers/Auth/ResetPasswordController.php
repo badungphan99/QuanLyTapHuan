@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
 
 class ResetPasswordController extends Controller
 {
@@ -50,7 +50,7 @@ class ResetPasswordController extends Controller
             return view('auth.passwords.email')->withInput($request['email'])
                 ->withErrors(['email' => trans("Email not found")]);
         }else{
-            return die($request['email']);
+            return die(Str::random(10));
         }
     }
 
