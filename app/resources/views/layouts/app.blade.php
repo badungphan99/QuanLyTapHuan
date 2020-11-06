@@ -71,6 +71,7 @@
             margin: 0px !important;
         }
     </style>
+    
     </head>
     <body>
         <nav class="navbar navbar-dark bg-light fixed-top">
