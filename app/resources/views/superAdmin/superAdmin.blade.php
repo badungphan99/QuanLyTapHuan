@@ -6,7 +6,10 @@
 
     <div id="mainLeft">
         <h1 class="heading-page"><i class="fas fa-home"> / </i>
+
             <span><u>Người dùng</u></span>
+
+
         </h1>
         <div class="filter-report">
 
@@ -159,6 +162,9 @@
                             </thead>
 
                             <tbody style=" background-color: white; ">
+
+
+
                                 @foreach ($listUser as $user)
                                     <tr>
                                         <td><input type="checkbox"></td>
@@ -249,6 +255,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
+
                             </tbody>
 
                         </table>
