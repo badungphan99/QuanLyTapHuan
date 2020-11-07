@@ -20,10 +20,6 @@ Route::get('/', function () {
 //     return view('superAdmin');
 // });
 
-Route::get('/root', function () {
-    return view('superAdmin');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

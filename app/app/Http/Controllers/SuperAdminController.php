@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class SuperAdminController extends Controller
 {
-   
+
     public function index()
     {
-        return view('superAdmin/superAdmin');
-        
+        $uc = new UserController(0);
+        $listUser =  $uc->listAllUser();
+        return view('superAdmin/superAdmin')->with('listUser', json_decode($listUser, true));
+
     }
     // public function show_data()
     // {
