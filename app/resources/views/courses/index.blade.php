@@ -56,10 +56,10 @@
                                 <td><p class="font-weight-light">{{ $course->status }}</p></td>
                                 <td>
                                     <a href="/course/edit/{{ $course->id }}" class="btn btn-outline-warning">Chỉnh sửa</a>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                                       Chi tiết
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exam{{$course->id}}">
+                                        Chi tiết
                                     </button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exam{{$course->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                             <div class="modal-header">

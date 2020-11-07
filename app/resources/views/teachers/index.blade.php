@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($users->count() == 0)
+                        @if (count($users) == 0)
                             <tr>
                                 <td colspan="11">
                                     <h5 class="text-warning text-center">Không tìm thấy giảng viên nào</h5>

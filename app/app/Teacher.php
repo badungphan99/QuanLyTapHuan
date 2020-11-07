@@ -13,5 +13,4 @@ class Teacher extends Model
         'status',
     ];
     public $timestamps = false;
-    
 }

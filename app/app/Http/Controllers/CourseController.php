@@ -125,7 +125,13 @@ class CourseController extends Controller
                     ->where('teacher.class_id', '=', $id)
                     ->get();
         $teacher_id = $teacher_id->__toString(); 
-        $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
+        $users = array();
+        if(strlen($teacher_id) > 15){
+            $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
+        }else{
+            //dd(gettype(compact($users)));
+            return view('teachers.index', compact('users'));
+        }
         return view('teachers.index', compact('users'));
     }
 }
