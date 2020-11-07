@@ -50,7 +50,7 @@
                         @endif
 
                     </div>
-                
+
                     <div class="card-link form-group">
                         <div class="#" >
                             <button type="submit" class="btn btn-outline-dark" style = "width:100%; margin: 0.5rem 0;">

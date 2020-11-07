@@ -32,13 +32,13 @@ class ForeignKeyConstraints extends Migration
     public function down()
     {
         Schema::table('enroll', function (Blueprint $table) {
-            $table->dropForeign('class_id');
-            $table->dropForeign('student_id');
+            $table->dropForeign(['class_id']);
+            $table->dropForeign(['student_id']);
         });
 
         Schema::table('teacher', function (Blueprint $table) {
-            $table->dropForeign('class_id');
-            $table->dropForeign('teacher_id');
+            $table->dropForeign(['class_id']);
+            $table->dropForeign(['teacher_id']);
         });
     }
 }

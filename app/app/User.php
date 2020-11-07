@@ -2,6 +2,7 @@
 
 namespace App;
 
+use http\Env\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -9,6 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $rememberTokenName = false;
 //
 //    /**
 //     * The attributes that are mass assignable.
@@ -29,6 +32,7 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
     public $timestamps = false;
+    protected $fillable = ['password'];
 
     public static function create(array $array)
     {

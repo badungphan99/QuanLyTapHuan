@@ -11,19 +11,19 @@
                 display: block;
             }
             
-            .main_wrapper {
-                margin-top: 130px;
-                height: 340px;
+            .container {
+                margin-top: 80px;
+                height: 350px;
             }
             
             #mainLeft {
-                width: 30%;
+                width: 20%;
                 float: left;
                 padding: 1em;
             }
             
             #mainRight {
-                width: 70%;
+                width: 80%;
                 float: right;
                 padding: 2em;
                 padding-left: 30px;
@@ -186,10 +186,11 @@
                 display: block;
             }
             
-            .row {
+            .show_table {
+                position: relative;
                 margin-top: 28px;
-                padding-left: 16px;
-                padding-right: 10px;
+                /* padding-left: 16px; */
+                padding-right: auto;
             }
             
             .modal-header {
@@ -199,4 +200,28 @@
             .col-md-6 {
                 float: left;
                 width: 50%
+            }
+            
+            .scroll_overflow {
+                overflow-y: scroll;
+                max-height: 247px;
+            }
+            
+            table {
+                text-align: center;
+            }
+            
+            table th {
+                background-color: rgb(204, 199, 199);
+                max-height: 50px;
+                position: sticky;
+                top: 0;
+            }
+            
+            .form-group {
+                text-align: left;
+            }
+            
+            .info_user {
+                margin: 20px 80px 0 80px;
             }
