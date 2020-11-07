@@ -24,16 +24,12 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
-<<<<<<< HEAD
-Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
-Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
-=======
 
 Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
+Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
 
 Route::get('/user/show', 'Users\UserController@show')->middleware('auth')->name('user.showinfo');
 Route::post('user/update','Users\UserController@update')->middleware('auth')->name('user.updateInfo');
->>>>>>> dabe9239fe8de8348dd251e253ef4ba339254b2d
 
 Route::get('/course', 'CourseController@index')->name('index_course');
 Route::get('/course/create', 'CourseController@create')->name('create_course_form');
