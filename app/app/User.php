@@ -32,6 +32,7 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
     public $timestamps = false;
+    protected $fillable = ['password'];
 
     public static function create(array $array)
     {
@@ -41,16 +42,6 @@ class User extends Authenticatable
         $user->email = $array['email'];
         $user->password = $array['password'];
         $user->save();
-
-        return $user;
-    }
-
-    public static function login(array $array)
-    {
-        $user = new User();
-        $user->where('username', $array['username'])
-            ->where('password', $array['password'])
-            ->first();
 
         return $user;
     }

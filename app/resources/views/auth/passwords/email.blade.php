@@ -58,7 +58,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.reset') }}">
                         @csrf
                         <label for="email-reset"><b>{{ __('E-Mail của bạn: ') }}</b></label>
                         <div class="form-group">

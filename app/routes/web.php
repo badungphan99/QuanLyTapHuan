@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/superAdmin', function () {
-    return view('superAdmin');
-});
+// Route::get('/superAdmin', function () {
+//     return view('superAdmin');
+// });
 
 Route::get('/root', function () {
     return view('superAdmin');
@@ -41,3 +41,12 @@ Route::put('/create-new_account/{$data}', 'UserController@creatNewAccount');
 Route::get('/set-role', 'UserController@setRoleUser');
 
 Route::get('/set-info', 'UserController@setInfoUser');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+
+Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
+
+Route::get('/user/show', 'Users\UserController@show')->middleware('auth')->name('user.showinfo');
+Route::post('user/update','Users\UserController@update')->middleware('auth')->name('user.updateInfo');
