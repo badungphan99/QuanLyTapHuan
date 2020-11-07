@@ -18,8 +18,4 @@ class Course extends Model
         'status'
     ];
     public $timestamps = false;
-    public function teachers()
-    {
-        return $this->hasMany('App\Teacher');
-    }
 }
