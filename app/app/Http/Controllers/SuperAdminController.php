@@ -7,20 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class SuperAdminController extends Controller
 {
-<<<<<<< HEAD
-   
-    public function index()
-    {
-        return view('superAdmin/superAdmin');
-        
-    }
-    public function detail_infor_user()
-    {
-        return view('superAdmin/detail_user');
-        
-    }
 
-=======
+    // public function detail_infor_user()
+    // {
+    //     return view('superAdmin/detail_user');
+        
+    // }
 
     public function index()
     {
@@ -29,11 +21,11 @@ class SuperAdminController extends Controller
         return view('superAdmin/superAdmin')->with('listUser', json_decode($listUser, true));
 
     }
->>>>>>> origin/testapi
-    // public function show_data()
-    // {
-    //     $makeups=DB::table('products');
-    //         return view('manageProducts',compact('makeups','skincares','hairs','bodys','foods','tools'));
-    // }
+
+    public function detail_infor_user()
+    {
+        $courses = DB::table('course')->get();
+        return view('superAdmin/detail_user', compact('courses'));
+    }
 
 }

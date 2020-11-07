@@ -7,7 +7,7 @@
     <div id="mainLeft">
         <h1 class="heading-page"><i class="fas fa-home"> / </i>
 
-            <span><u>Người dùng</u></span>
+            <span><b><u>Danh sách người dùng</u></b></span>
 
 
         </h1>
@@ -163,8 +163,6 @@
 
                             <tbody style=" background-color: white; ">
 
-                                
-
                                 @foreach ($listUser as $user)
                                     <tr>
                                         <td><input type="checkbox"></td>
@@ -266,10 +264,5 @@
     </div>
 </div>
 
-
-
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> origin/testapi
+
