@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Course;
+use App\Teacher;
 use Illuminate\Http\Request;
 use DB;
 
@@ -104,7 +105,7 @@ class CourseController extends Controller
                   'num_student' => $num_student,
                   'status' => $status]
             );
-            return redirect('course')->with('status',"Update successfully");
+        return redirect('course')->with('status',"Update successfully");
     }
 
     /**
@@ -117,9 +118,14 @@ class CourseController extends Controller
     {
         //
     }
-    public function view_teacher()
+    public function view_teacher($id)
     {
-        
-        return view('teachers.index');
+        $teacher_id = DB::table('teacher')
+                    ->select('teacher_id')
+                    ->where('teacher.class_id', '=', $id)
+                    ->get();
+        $teacher_id = $teacher_id->__toString(); 
+        $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
+        return view('teachers.index', compact('users'));
     }
 }

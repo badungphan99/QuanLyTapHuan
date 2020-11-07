@@ -43,7 +43,7 @@
                         @if ($courses->count() == 0)
                             <tr>
                                 <td colspan="11">
-                                    <h5 class="text-warning text-center">Không tìm thấy người khóa học nào</h5>
+                                    <h5 class="text-warning text-center">Không tìm thấy khóa học nào</h5>
                                 </td>
                             </tr>
                         @endif
@@ -75,7 +75,7 @@
                                                 <p class="font-weight-light">{{ $course->content }}</p>
                                                 <label for=""><b>Ngày khai giảng: </b></label>
                                                 <p class="font-weight-light">{{ $course->date }}</p>
-                                                <label for=""><a href="">Giảng viên phụ trách</a></label>
+                                                <label for=""><a href="/course/teacher/{{ $course->id }}">Giảng viên phụ trách</a></label>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

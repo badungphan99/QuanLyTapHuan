@@ -31,7 +31,7 @@ Route::post('/course/store', 'CourseController@store')->name('store_course');
 Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');
 Route::post('/course/edit/{id}', 'CourseController@update')->name('edit_course');
 
-Route::get('/course/teacher', 'CourseController@view_teacher')->name('view_teacher');
+Route::get('/course/teacher/{id}', 'CourseController@view_teacher')->name('view_teacher');
 
 // Route::get('/test/{id}', function ($id) {
 //     $course = DB::table('course')->where('id', $id)->first();
