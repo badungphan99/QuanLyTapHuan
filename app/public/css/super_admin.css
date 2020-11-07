@@ -11,9 +11,9 @@
                 display: block;
             }
             
-            .main_wrapper {
-                margin-top: 70px;
-                height: 340px;
+            .container {
+                margin-top: 80px;
+                height: 350px;
             }
             
             #mainLeft {
@@ -220,4 +220,8 @@
             
             .form-group {
                 text-align: left;
+            }
+            
+            .info_user {
+                margin: 20px 80px 0 80px;
             }

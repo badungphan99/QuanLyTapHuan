@@ -13,6 +13,12 @@ class SuperAdminController extends Controller
         return view('superAdmin/superAdmin');
         
     }
+    public function detail_infor_user()
+    {
+        return view('superAdmin/detail_user');
+        
+    }
+
     // public function show_data()
     // {
     //     $makeups=DB::table('products');
