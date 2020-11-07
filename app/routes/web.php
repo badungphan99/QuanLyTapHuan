@@ -23,12 +23,30 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/list-all-user', 'UserController@listAllUser');
+
+Route::get('/user/{username}', 'UserController@getUserByUserName');
+
+Route::get('/disable-user/{username}', 'UserController@disableUser');
+
+Route::get('/enable-user/{username}', 'UserController@enableUser');
+
+Route::put('/create-new_account/{$data}', 'UserController@creatNewAccount');
+
+Route::get('/set-role', 'UserController@setRoleUser');
+
+Route::get('/set-info', 'UserController@setInfoUser');
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
 
+
 Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
+
+
 
 
 Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');

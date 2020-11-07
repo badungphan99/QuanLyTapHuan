@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class SuperAdminController extends Controller
 {
+<<<<<<< HEAD
    
     public function index()
     {
@@ -19,6 +20,16 @@ class SuperAdminController extends Controller
         
     }
 
+=======
+
+    public function index()
+    {
+        $uc = new UserController(0);
+        $listUser =  $uc->listAllUser();
+        return view('superAdmin/superAdmin')->with('listUser', json_decode($listUser, true));
+
+    }
+>>>>>>> origin/testapi
     // public function show_data()
     // {
     //     $makeups=DB::table('products');
