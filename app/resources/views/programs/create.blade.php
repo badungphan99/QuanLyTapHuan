@@ -19,32 +19,16 @@
     </head>
     <body>
         <div class="container">
-            <h1>Thêm khóa tập huấn</h1>
-            <form action = "/course/store" method = "post">
+            <h1>Thêm chương trình tập huấn</h1>
+            <form action = "/program/store" method = "post">
                 @csrf
                 <div class="form-group">
-                    <label for="nameCourse">Tên khóa học:</label>
+                    <label for="nameProgram">Tên chương trình:</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter the name" name="name">
                 </div>
                 <div class="form-group">
-                    <label for="dateCourse">Ngày khai giảng:</label>
-                    <input type="text" class="form-control" id="date" placeholder="Enter the date" name="date">
-                </div>
-                <div class="form-group">
-                    <label for="contentCourse">Nội dung:</label>
-                    <input type="text" class="form-control" id="content" placeholder="Enter the content" name="content">
-                </div>
-                <div class="form-group">
-                    <label for="programCourse">Chương trình:</label>
-                    <input type="text" class="form-control" id="program_id" placeholder="Enter the program" name="program_id">
-                </div>
-                <div class="form-group">
-                    <label for="nameCourse">Địa điểm:</label>
-                    <input type="text" class="form-control" id="location" placeholder="Enter the location" name="location">
-                </div>
-                <div class="form-group">
-                    <label for="num_stdCourse">Số lượng học viên:</label>
-                    <input type="number" class="form-control" id="num_student" placeholder="Enter the number of students" name="num_student">
+                    <label for="Program">Chương trình:</label>
+                    <input type="text" class="form-control" id="date" placeholder="Enter the date" name="program">
                 </div>
                 <div class="form-group">
                     <label for="nameCourse">Trạng thái:</label>

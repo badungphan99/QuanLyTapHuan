@@ -25,56 +25,72 @@
 <div class="#">
     <div class="row justify-content-end">
         <div class="register-form card col-lg-4 col-md-7 col-sm-6 col-12">
-            <form method = "POST" action="{{route('login')}}">
+            <form method = "POST" action="{{route('register')}}">
                 @csrf
                 <div class="card-body">
                     <h3><b>{{ __('Đăng ký tài khoản')}}</b></h3>
                     <div class="form-group row">
                         <label for="fullname" class="col-sm-4 col-form-label"><b>{{ __('Họ và tên ')}}</b></label>
                         <input type="text" id = "fullname" class="col-sm-7 form-control @error('fullname') is-invalid @enderror" name = "fullname" value = "{{ old('fullname') }}" placeholder = "Enter your fullname.." autocomplete = "fullname" autofocus required>
-                        <!-- @error('username')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror -->
-                    </div>
-                    <div class="form-group row">
-                        <label for="username" class="col-sm-4 col-form-label"><b>{{ __('Tên đăng nhập ')}}</b></label>
-                        <input type="text" id = "username" class = "col-sm-7 form-control @error('username') is-invalid @enderror" name = "username" value = "{{ old('username') }}" placeholder = "Enter your username.." autocomplete = "username"required>
-                        <!-- @error('username')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror -->
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-4 col-form-label"><b>{{ __('Email ')}}</b></label>
-                        <input type="text" id = "email" class = "col-sm-7 form-control @error('email') is-invalid @enderror" name = "email" value = "{{ old('email') }}" placeholder = "Enter your email.." autocomplete = "email "required>
-                        <!-- @error('username')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror -->
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-sm-4 col-form-label"><b>{{ __('Mật khẩu')}}</b></label>
-                        <input type="password" id = "password" class = "col-sm-7 form-control @error('password') is-invalid @enderror" name = "password" placeholder = "Enter your password.." autocomplete="current-password" required>
-                        @error('password')
+                        @error('username')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
                     <div class="form-group row">
-                        <label for="password_cf" class="col-sm-4 col-form-label"><b>{{ __('Xác nhận mật khẩu')}}</b></label>
-                        <input type="password" id = "password_cf" class = "col-sm-7 form-control" name = "password_cf" placeholder = "Password confirm" required>
-                        <!-- @error('password')
+                        <label for="username" class="col-sm-4 col-form-label"><b>{{ __('Tên đăng nhập ')}}</b></label>
+                        <input type="text" id = "username" class = "col-sm-7 form-control @error('username') is-invalid @enderror" name = "username" value = "{{ old('username') }}" placeholder = "Enter your username.." autocomplete = "username" required>
+                        @error('username')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror -->
+                        @enderror
                     </div>
-                
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-4 col-form-label"><b>{{ __('Email ')}}</b></label>
+                        <input type="text" id = "email" class = "col-sm-7 form-control @error('email') is-invalid @enderror" name = "email" value = "{{ old('email') }}" placeholder = "Enter your email.." autocomplete = "email" required>
+                        @error('username')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+{{--                    <div class="form-group row">--}}
+{{--                        <label for="password" class="col-sm-4 col-form-label"><b>{{ __('Mật khẩu')}}</b></label>--}}
+{{--                        <input type="password" id = "password" class = "col-sm-7 form-control @error('password') is-invalid @enderror" name = "password" placeholder = "Enter your password.." autocomplete="current-password" required>--}}
+{{--                        @error('password')--}}
+{{--                            <span class="invalid-feedback" role="alert">--}}
+{{--                                <strong>{{ $message }}</strong>--}}
+{{--                            </span>--}}
+{{--                        @enderror--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group row">--}}
+{{--                        <label for="password-confirm" class="col-sm-4 col-form-label"><b>{{ __('Xác nhận mật khẩu')}}</b></label>--}}
+{{--                        <input type="password" id = "password-confirm" class = "col-sm-7 form-control" name = "password-confirm" placeholder = "Password confirm" required>--}}
+{{--                        @error('password')--}}
+{{--                            <span class="invalid-feedback" role="alert">--}}
+{{--                                <strong>{{ $message }}</strong>--}}
+{{--                            </span>--}}
+{{--                        @enderror--}}
+{{--                    </div>--}}
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-4 col-form-label"><b>{{ __('Mật khẩu')}}</b></label>
+                        <input id="password" type="password" class="col-sm-7 form-control @error('password') is-invalid @enderror" name="password" placeholder = "Enter your password.." required autocomplete="new-password">
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                        @enderror
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password-confirm" class="col-sm-4 col-form-label"><b>{{ __('Xác nhận mật khẩu')}}</b></label>
+                        <input id="password-confirm" type="password" class="col-sm-7 form-control" name="password_confirmation" placeholder = "Password confirm" required autocomplete="new-password">
+                    </div>
+
                     <div class="form-group justify-content-center">
                         <div class="btn-signup" >
                             <button type="submit" class="btn btn-outline-dark">
