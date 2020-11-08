@@ -4,6 +4,65 @@ html{
 
 body{
     font-family: sans-serif;
+    /* height: 100vh; */
+}
+
+.dropdown{
+    margin-right: 50px;
+    text-align:center;
+
+}
+
+ul li ul.dropdown{
+    align-content:left;
+    display: inline-block;
+    position: relative;
+    left: 0;
+}
+ul li:hover ul.dropdown{
+    display: block;
+    
+}
+ul li ul.dropdown li{
+    display: block;
+}
+.dropdown-content{
+    display:none;
+    position: absolute;
+    min-width:160px;
+    left:0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    width:100%;
+    height:auto;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    width: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+.dropdown:hover .dropbtn {
+    /* background-color: #f8f8f8; */
+}
+.dropbtn{
+    /* margin-left: 0px;  */
+}
+
+footer{
+    height: 250px;
+    margin: 0;
+    padding: 35px;
 }
 
 a{
