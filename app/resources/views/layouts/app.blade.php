@@ -46,7 +46,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/super_admin.css') }}"/>
 
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/base/super_admin.css') }}"/>
 
 <style>
         main{
@@ -90,7 +89,15 @@
                     </li>
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                        <li>
+                            <span class=" dropdown">
+                                <span class="animate-dropdown "><i class="far fa-user"></i>&nbsp  {{Auth::user()->username}}</span>
+                                <div class="dropdown-content ">
+                                    <a href="{{ url('/home') }}"><i class="fas fa-home"></i>&nbsp Home</a>
+                                    <a href="#" data-toggle="tooltip" title="Log out"><i class="fas fa-sign-out-alt"></i>&nbsp Đăng xuất</a>
+                                </div>
+                            </span>
+                        </li>
                         @else
                             <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#loginModal">Đăng nhập</button></li>
 
