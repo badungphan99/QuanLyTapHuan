@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>     -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,16 +22,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+
  <!--  -->
- 
+
      <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
- 
+
  <!--  -->
 
     <!-- Styles -->
@@ -45,6 +45,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/super_admin.css') }}"/>
 
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/base/super_admin.css') }}"/>
 
 <style>
         main{
@@ -71,6 +73,7 @@
             margin: 0px !important;
         }
     </style>
+    
     </head>
     <body>
         <nav class="navbar navbar-dark bg-light fixed-top">
@@ -90,16 +93,16 @@
                             <a href="{{ url('/home') }}">Home</a>
                         @else
                             <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#loginModal">Đăng nhập</button></li>
-                            
+
                             @if (Route::has('register'))
                             <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#registerModal">Đăng ký</button></li>
-                        
+
                             @endif
                         @endauth
                     @endif
                 </ul>
             <!-- </nav> -->
-        </nav> 
+        </nav>
         <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
             <div class="modal-dialog modal-sm" role = 'document'>
                 <div class="modal-content">
@@ -141,7 +144,7 @@
                                     </a>
                                 @endif
                             </div>
-                        
+
                             <div class="form-group">
                                 <div class="#" >
                                     <button type="submit" class="btn btn-outline-dark" style = "width:100%; margin: 0.5rem 0;">
@@ -172,7 +175,7 @@
                     <form method = "POST" action="{{route('login')}}">
                         @csrf
                         <div class="modal-body">
-                        
+
                             <div class="form-group">
                                 <label for="fullname" class="#"><b>{{ __('Họ và tên: ')}}</b></label>
                                 <input type="text" id = "fullname" class="form-control @error('fullname') is-invalid @enderror" name = "fullname" value = "{{ old('fullname') }}" placeholder = "Enter your fullname.." autocomplete = "fullname" autofocus required>
@@ -218,7 +221,7 @@
                                     </span>
                                 @enderror -->
                             </div>
-                        
+
                             <div class="row form-group justify-content-center">
                                 <div class="btn-signup" >
                                     <button type="submit" class="btn btn-outline-dark">
@@ -245,7 +248,7 @@
         </main>
         <footer class="py-5 bg-light">
             <div class="container">
-                <div class="contact-info">                         
+                <div class="contact-info">
                     <div class="footer-heading">
                         <h4>Thông tin liên hệ</h4>
                     </div>

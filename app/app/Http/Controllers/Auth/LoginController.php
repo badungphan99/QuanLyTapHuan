@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use \Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,4 +40,45 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'username';
+    }
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool | void
+     */
+    protected function attemptLogin(Request $request)
+    {
+        $user = User::where('username', $request->username)
+            ->where('password', $request->password)
+            ->first();
+
+        if(!isset($user)){
+            return false;
+        }
+
+        if(!$user->status){
+            return die("LoginController@attemptLogin: tai khoan bi khoa");
+        }
+
+        Auth::login($user);
+        return true;
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return true;
+    }
+
 }
