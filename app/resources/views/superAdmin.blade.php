@@ -1,5 +1,6 @@
 @extends('layouts.app')
 <title>SuperAdmin </title>
+<link rel="stylesheet" href="{{ asset('css/superAdmin.css') }}">
 @section('content')
 
 <div class="container main_wrapper">
@@ -46,13 +47,13 @@
         <div>
             <div class="search-box">
                 <form class="search-form" action=""> <input class="form-control" placeholder="Search fullname, username..." type="text">
-                    <button class="btn btn-link search-btn"> <i class="glyphicon glyphicon-search"></i> 
+                    <button class="btn btn-sm btn-link search-btn"> <i class="glyphicon glyphicon-search"></i> 
                      </button>
                 </form>
             </div>
             <div class="menuRight">
                 <div class="add-user">
-                    <button class="btn dropbtn" style="background-color: #aaa;" data-toggle="modal" data-target="#modalAdd">
+                    <button class="btn btn-sm dropbtn" style="background-color: #aaa;" data-toggle="modal" data-target="#modalAdd">
                             <i class="glyphicon glyphicon-plus"></i> &nbsp;Add user
                         </button>
 
