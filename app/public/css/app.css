@@ -52,12 +52,6 @@ ul li ul.dropdown li{
     display: block;
     }
 
-.dropdown:hover .dropbtn {
-    /* background-color: #f8f8f8; */
-}
-.dropbtn{
-    /* margin-left: 0px;  */
-}
 
 footer{
     height: 250px;

@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\DB;
 class SuperAdminController extends Controller
 {
 
-    // public function detail_infor_user()
-    // {
-    //     return view('superAdmin/detail_user');
-        
-    // }
-
     public function index()
     {
         $uc = new UserController(0);
@@ -21,11 +15,10 @@ class SuperAdminController extends Controller
         return view('superAdmin/superAdmin')->with('listUser', json_decode($listUser, true));
 
     }
-
-    public function detail_infor_user()
-    {
-        $courses = DB::table('course')->get();
-        return view('superAdmin/detail_user', compact('courses'));
-    }
+    // public function show_data()
+    // {
+    //     $makeups=DB::table('products');
+    //         return view('manageProducts',compact('makeups','skincares','hairs','bodys','foods','tools'));
+    // }
 
 }

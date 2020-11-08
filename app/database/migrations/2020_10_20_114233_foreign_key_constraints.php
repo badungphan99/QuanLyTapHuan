@@ -22,6 +22,10 @@ class ForeignKeyConstraints extends Migration
             $table->foreign('class_id')->references('id')->on('course');
             $table->foreign('teacher_id')->references('id')->on('users');
         });
+
+        Schema::table('course', function (Blueprint $table){
+            $table->foreign('program_id')->references('id')->on('program');
+        });
     }
 
     /**
@@ -39,6 +43,10 @@ class ForeignKeyConstraints extends Migration
         Schema::table('teacher', function (Blueprint $table) {
             $table->dropForeign(['class_id']);
             $table->dropForeign(['teacher_id']);
+        });
+
+        Schema::table('course', function (Blueprint $table){
+            $table->dropForeign(['program_id']);
         });
     }
 }

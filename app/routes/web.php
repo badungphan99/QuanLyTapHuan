@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/superAdmin', function () {
-//     return view('superAdmin');
-// });
 
 Auth::routes();
 
@@ -37,19 +34,30 @@ Route::put('/create-new_account/{$data}', 'UserController@creatNewAccount');
 Route::get('/set-role', 'UserController@setRoleUser');
 
 Route::get('/set-info', 'UserController@setInfoUser');
-
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
 
-
-Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
-
 Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
+Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
 
 Route::get('/user/show', 'Users\UserController@show')->middleware('auth')->name('user.showinfo');
 Route::post('user/update','Users\UserController@update')->middleware('auth')->name('user.updateInfo');
+
+Route::get('/course', 'CourseController@index')->name('index_course');
+Route::get('/course/create', 'CourseController@create')->name('create_course_form');
+Route::post('/course/store', 'CourseController@store')->name('store_course');
+
+Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');
+Route::post('/course/edit/{id}', 'CourseController@update')->name('edit_course');
+Route::get('/course/teacher/{id}', 'CourseController@view_teacher')->name('view_teacher');
+
+Route::get('/program', 'ProgramController@index')->name('index_program');
+Route::get('/program/create', 'ProgramController@create')->name('create_program_form');
+Route::post('/program/store', 'ProgramController@store')->name('store_program');
+Route::get('/program/edit/{id}', 'ProgramController@show')->name('show_program');
+Route::post('/program/edit/{id}', 'ProgramController@update')->name('edit_program');
 
 Route::get('/course', 'SuperAdminController @detail_infor_user')->name('index_course');
 
