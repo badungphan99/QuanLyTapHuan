@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/super_admin.css') }}"/>
+    <!-- <link rel="stylesheet" href="{{ asset('css/super_admin.css') }}"/> -->
 
 
 
@@ -75,7 +75,6 @@
                 <img src="../img/logo.png" alt="Venue Logo">
             </div></a>
             <button class="navbar-toggler btn-lg " type="link" data-toggle="collapse" data-target="#headnav"><span><i class="fa fa-bars"></i></span></button>
-            <!-- <nav id="primary-nav" class="dropdown cf"> -->
             <div class="collapse navbar-collapse justify-content-end" id="headnav">
                 <ul class="dropdown menu">
                     <li>

@@ -69,7 +69,7 @@ a u {
 
 .form-group {
     margin-bottom: 10px;
-    min-height: 32px;
+    /* min-height: 32px; */
 }
 
 .search-box {
