@@ -43,14 +43,11 @@
     <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/super_admin.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/super_admin.css') }}"/>
 
 
 
 <style>
-        main{
-            overflow:auto;
-        }
         .btn-link{
         color: black;
         text-decoration:none !important;
@@ -68,23 +65,23 @@
             top:0px;
             margin-top: 2px;
         }
-        footer{
-            margin: 0px !important;
-        }
+
     </style>
     
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg bg-light navbar-fixed-top">
             <a href="{{url ('/') }}"><div class="logo">
                 <img src="../img/logo.png" alt="Venue Logo">
             </div></a>
+            <button class="navbar-toggler btn-lg " type="link" data-toggle="collapse" data-target="#headnav"><span><i class="fa fa-bars"></i></span></button>
             <!-- <nav id="primary-nav" class="dropdown cf"> -->
+            <div class="collapse navbar-collapse justify-content-end" id="headnav">
                 <ul class="dropdown menu">
                     <li>
                         <form class="form-inline" action="">
                             <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm">
-                            <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-dark" style="padding: 6.5px 10px" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
                     @if (Route::has('login'))
@@ -108,6 +105,7 @@
                         @endauth
                     @endif
                 </ul>
+            </div>
             <!-- </nav> -->
         </nav>
         <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
@@ -250,7 +248,7 @@
         </div>
 
 
-        <main>
+        <main class = "site-content">
             @yield('content')
         </main>
         <footer class="py-5 bg-light">

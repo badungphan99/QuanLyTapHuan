@@ -12,13 +12,11 @@
 @section('content')
 <section class="banner" id="top">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="banner-img">
-                    <h2></h2>
-                    <span></span>                            
-                </div>                       
-            </div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="banner-img">
+                <h2></h2>
+                <span></span>                            
+            </div>                       
         </div>
     </div>
 </section>
@@ -79,12 +77,13 @@
                 </div>
             </div>
         </div>
+        <div class="next d-flex justify-content-end">
+            <a href="#">Xem tất cả <marquee style="line-height: normal;" width="12%" direction="right">>>></marquee></a>
+        </div>
     </div>
 </section>
 <br>
-<div class="next">
-    <a href="#">Xem tất cả <marquee style="line-height: normal;" width="12%" direction="right">>>></marquee></a>
-</div>
+
 
         
 <script>

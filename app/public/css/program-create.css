@@ -1,0 +1,18 @@
+h1 {
+    margin: 30px 0 30px !important;
+}
+
+.create{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.btn-create button{
+    width: 15%;
+    margin-top: 0 !important;
+
+}
+
+.create .row{
+    padding-right: 15px;
+}
