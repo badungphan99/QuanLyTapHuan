@@ -14,7 +14,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- Styles -->
         <style>
-            
+
         </style>
     </head>
     <body>
@@ -35,8 +35,8 @@
                     <input type="text" class="form-control" id="content" placeholder="Enter the content" name="content">
                 </div>
                 <div class="form-group">
-                    <label for="programCourse">Chương trình:</label>
-                    <input type="text" class="form-control" id="program" placeholder="Enter the program" name="program">
+                    <label for="programCourse">Mã chương trình:</label>
+                    <input type="text" class="form-control" id="program_id" placeholder="Enter the program" name="program_id">
                 </div>
                 <div class="form-group">
                     <label for="nameCourse">Địa điểm:</label>

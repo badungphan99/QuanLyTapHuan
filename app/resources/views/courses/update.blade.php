@@ -24,7 +24,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="nameCourse">Tên khóa học:</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{$course->name}}" readonly>
+                    <input type="text" class="form-control" id="name" name="name" value="{{$course->name}}">
                 </div>
                 <div class="form-group">
                     <label for="dateCourse">Ngày khai giảng:</label>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="programCourse">Chương trình:</label>
-                    <input type="text" class="form-control" id="program" name="program" value="{{$course->program}}">
+                    <input type="text" class="form-control" id="program" name="program_id" value="{{$course->program_id}}">
                 </div>
                 <div class="form-group">
                     <label for="nameCourse">Địa điểm:</label>

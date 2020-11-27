@@ -20,11 +20,11 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <h1>Danh sách khóa tập huấn</h1>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h1>Các khóa tập huấn</h1>
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-4"></div>
             </div>
             
             <div class="table-responsive">
@@ -32,7 +32,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Tên khóa học</th>
+                            <th>Tên khóa tập huấn</th>
                             <th>Số lượng</th>
                             <th>Địa điểm</th>
                             <th>Trạng thái</th>

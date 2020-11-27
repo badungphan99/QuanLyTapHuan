@@ -8,7 +8,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="nameCourse">Tên chương trình:</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}" readonly>
+                    <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}">
                 </div>
                 <div class="form-group">
                     <label for="dateCourse">Chương trình tập huấn:</label>

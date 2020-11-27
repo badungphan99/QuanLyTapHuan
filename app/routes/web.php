@@ -60,6 +60,7 @@ Route::get('/program/create', 'ProgramController@create')->name('create_program_
 Route::post('/program/store', 'ProgramController@store')->name('store_program');
 Route::get('/program/edit/{id}', 'ProgramController@show')->name('show_program');
 Route::post('/program/edit/{id}', 'ProgramController@update')->name('edit_program');
+Route::get('/program/courses/{id}', 'ProgramController@view_course')->name('view_course');
 
 Route::get('/course', 'SuperAdminController @detail_infor_user')->name('index_course');
 

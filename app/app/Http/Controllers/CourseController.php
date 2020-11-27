@@ -42,7 +42,7 @@ class CourseController extends Controller
             $course = new Course;
             $course->name = $data['name'];
             $course->date = $data['date'];
-            $course->program = $data['program'];
+            $course->program_id = $data['program_id'];
             $course->content = $data['content'];
             $course->status = $data['status'];
             $course->num_student = $data['num_student'];
@@ -90,7 +90,7 @@ class CourseController extends Controller
         $name = $request->input('name');
         $date = $request->input('date');
         $content = $request->input('content');
-        $program = $request->input('program');
+        $program_id = $request->input('program_id');
         $location = $request->input('location');
         $num_student = $request->input('num_student');
         $status = $request->input('status');
@@ -100,7 +100,7 @@ class CourseController extends Controller
                   ['name' => $name,
                   'date' => $date,
                   'content' => $content,
-                  'program' => $program,
+                  'program_id' => $program_id,
                   'location' => $location,
                   'num_student' => $num_student,
                   'status' => $status]
@@ -124,8 +124,13 @@ class CourseController extends Controller
                     ->select('teacher_id')
                     ->where('teacher.class_id', '=', $id)
                     ->get();
-        $teacher_id = $teacher_id->__toString(); 
-        $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
+        $teacher_id = $teacher_id->__toString();
+        $users = array();
+        if(strlen($teacher_id) > 15){
+            $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
+        }else{
+            return view('teachers.index', compact('users'));
+        }
         return view('teachers.index', compact('users'));
     }
 }
