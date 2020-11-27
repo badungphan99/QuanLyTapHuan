@@ -53,6 +53,7 @@ Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');
 Route::post('/course/edit/{id}', 'CourseController@update')->name('edit_course');
 Route::get('/course/teacher/{id}', 'CourseController@view_teacher')->name('view_teacher');
 
+
 Route::get('/program', 'ProgramController@index')->name('index_program');
 Route::get('/program/create', 'ProgramController@create')->name('create_program_form');
 Route::post('/program/store', 'ProgramController@store')->name('store_program');
