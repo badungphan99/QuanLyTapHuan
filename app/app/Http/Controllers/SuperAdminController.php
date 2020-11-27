@@ -58,7 +58,11 @@ class SuperAdminController extends Controller
             'academic_degree' => ['string', 'max:255'],
         ]);
     }
+        $uc = new UserController(0);
+        $listUser =  $uc->listAllUser();
+        return view('superAdmin/superAdmin')->with('listUser', json_decode($listUser, true));
 
+    }
     // public function show_data()
     // {
     //     $makeups=DB::table('products');

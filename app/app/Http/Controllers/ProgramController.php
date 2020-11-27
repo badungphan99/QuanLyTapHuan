@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Course;
-use App\Teacher;
+use App\Program;
 use Illuminate\Http\Request;
 use DB;
 
-class CourseController extends Controller
+class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = DB::table('course')->get();
-        return view('courses.index', compact('courses'));
+        $programs = DB::table('program')->get();
+        return view('programs.index', compact('programs'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('courses.create');
+        return view('programs.create');
     }
 
     /**
@@ -39,19 +39,15 @@ class CourseController extends Controller
     {
         $data = $request->input();
         try{
-            $course = new Course;
-            $course->name = $data['name'];
-            $course->date = $data['date'];
-            $course->program_id = $data['program_id'];
-            $course->content = $data['content'];
-            $course->status = $data['status'];
-            $course->num_student = $data['num_student'];
-            $course->location = $data['location'];
-            $course->save();
-            return redirect('course')->with('status',"Insert successfully");
+            $program = new Program;
+            $program->name = $data['name'];
+            $program->program = $data['program'];
+            $program->status = $data['status'];
+            $program->save();
+            return redirect('program')->with('status',"Insert successfully");
         }
         catch(Exception $e){
-            return redirect('course')->with('failed',"operation failed");
+            return redirect('program')->with('failed',"Insert failed");
         }
     }
 
@@ -63,8 +59,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course = DB::table('course')->where('id', $id)->first();
-        return view('courses.update',compact('course'));
+        $program = DB::table('program')->where('id', $id)->first();
+        return view('programs.update',compact('program'));
     }
 
     /**
@@ -88,24 +84,16 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         $name = $request->input('name');
-        $date = $request->input('date');
-        $content = $request->input('content');
-        $program_id = $request->input('program_id');
-        $location = $request->input('location');
-        $num_student = $request->input('num_student');
+        $program = $request->input('program');
         $status = $request->input('status');
-        DB::table('course')
+        DB::table('program')
               ->where('id', $id)
               ->update(
                   ['name' => $name,
-                  'date' => $date,
-                  'content' => $content,
-                  'program_id' => $program_id,
-                  'location' => $location,
-                  'num_student' => $num_student,
+                  'program' => $program,
                   'status' => $status]
             );
-        return redirect('course')->with('status',"Update successfully");
+        return redirect('program')->with('status',"Update successfully");
     }
 
     /**
