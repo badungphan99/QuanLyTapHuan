@@ -38,6 +38,8 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->name('password.request');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+Route::get('/password/update', 'Auth\UpdatePasswordController@showRequestForm')->name('password.update.request');
+Route::post('/password/update', 'Auth\UpdatePasswordController@updatePassword')->name('password.update');
 
 Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
 Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');

@@ -37,7 +37,7 @@ class ResetPasswordController extends Controller
      * Reset the given user's password.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function reset(Request $request)
     {
@@ -52,7 +52,8 @@ class ResetPasswordController extends Controller
         }else{
             $passwd = Str::random(10);
             $user->update(['password' => $passwd]);
-            return die($passwd);
+            $user->save();
+            return view('auth.passwords.new-password',compact('passwd'));
         }
     }
 

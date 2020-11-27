@@ -22,7 +22,7 @@
     .new-password{
         margin: 30px 0;
     }
-    
+
 </style>
 
 
@@ -34,10 +34,10 @@
                 <div class="card-body">
                     <h2 class = 'card-title' align = center><b>{{ __('Mật khẩu mới') }}</b></h2>
                     <div class="new-password">
-                        <p>Mật khẩu mới của bạn là: </p>
+                        <p>Mật khẩu mới của bạn là: {{$passwd}}</p>
                     </div>
                     <div class="row justify-content-center reset-password">
-                        <a href="#"><button class="btn btn-lg btn-outline-dark">Đổi mật khẩu</button></a>
+                        <a href="/home"><button class="btn btn-lg btn-outline-dark">Đăng nhập</button></a>
                     </div>
                 </div>
             </div>

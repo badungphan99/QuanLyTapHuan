@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -11,15 +12,16 @@
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+{{--                        <input type="hidden" name="token" value="{{ $token ?? '' }}">--}}
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Old password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                <input id="old-password" type="password" class="form-control @error('password') is-invalid @enderror" name="old-password"  required autocomplete="old-password">
 
-                                @error('email')
+                                @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -56,6 +58,11 @@
                                 </button>
                             </div>
                         </div>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>
