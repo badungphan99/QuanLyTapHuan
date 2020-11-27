@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                    <h1>Danh sách khóa tập huấn</h1>
+                    <h1>Danh sách giảng viên</h1>
                 </div>
                 <div class="col-sm-3"></div>
             </div>
@@ -59,7 +59,7 @@
                     </tbody>
                 </table>
             </div>
-            <a href="/course/create" class="btn btn-primary" id="create_course">Thêm mới</a>
+            <a href="/teacher/create" class="btn btn-primary" id="create_teacher">Thêm mới</a>
         </div>
     </body>
 </html>

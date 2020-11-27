@@ -35,7 +35,7 @@
                     <input type="text" class="form-control" id="content" placeholder="Enter the content" name="content">
                 </div>
                 <div class="form-group">
-                    <label for="programCourse">Chương trình:</label>
+                    <label for="programCourse">Mã chương trình:</label>
                     <input type="text" class="form-control" id="program_id" placeholder="Enter the program" name="program_id">
                 </div>
                 <div class="form-group">

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Program</title>
+        <title>Courses</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -19,20 +19,28 @@
     </head>
     <body>
         <div class="container">
-            <h1>Chỉnh sửa khóa tập huấn</h1>
-            <form action = "/program/edit/{{$program->id}}" method = "post">
+            <h1>Thêm giảng viên</h1>
+            <form action = "/teacher/store" method = "post">
                 @csrf
                 <div class="form-group">
-                    <label for="nameCourse">Tên chương trình:</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{$program->name}}">
+                    <label for="nameCourse">Giảng viên:</label>
+                    <select class="form-control" id="teacher_id">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="dateCourse">Chương trình tập huấn:</label>
-                    <input type="text" class="form-control" id="program" name="program" value="{{$program->program}}">
-                </div>
-                <div class="form-group">
-                    <label for="nameCourse">Trạng thái:</label>
-                    <input type="text" class="form-control" id="status" name="status" value="{{$program->status}}">
+                    <label for="dateCourse">Khóa tập huấn:</label>
+                    <select class="form-control" id="class_id">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Cập nhật</button>
             </form>

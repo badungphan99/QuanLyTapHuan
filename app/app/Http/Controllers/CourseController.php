@@ -129,7 +129,6 @@ class CourseController extends Controller
         if(strlen($teacher_id) > 15){
             $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
         }else{
-            //dd(gettype(compact($users)));
             return view('teachers.index', compact('users'));
         }
         return view('teachers.index', compact('users'));

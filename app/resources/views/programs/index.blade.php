@@ -20,11 +20,11 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <h1>Danh sách các chương trình tập huấn</h1>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h1>Các chương trình tập huấn</h1>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-3"></div>
             </div>
             
             <div class="table-responsive">
@@ -53,7 +53,7 @@
                                 <td><label for="">{{ $program->name }}</label></td>
                                 <td><p class="font-weight-light">{{ $program->program }}</p></td>
                                 <td><p class="font-weight-light">{{ $program->status }}</p></td>
-                                <td><a href="/course" class="btn btn-success">Các khóa học</a></td>
+                                <td><a href="/program/courses/{{$program->id}}" class="btn btn-success">Các khóa học</a></td>
                                 <td>
                                     <a href="/program/edit/{{ $program->id }}" class="btn btn-outline-warning">Chỉnh sửa</a>                    
                                 </td>

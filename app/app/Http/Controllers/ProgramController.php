@@ -106,20 +106,11 @@ class ProgramController extends Controller
     {
         //
     }
-    public function view_teacher($id)
+    public function view_course($id)
     {
-        $teacher_id = DB::table('teacher')
-                    ->select('teacher_id')
-                    ->where('teacher.class_id', '=', $id)
+        $courses = DB::table('course')
+                    ->where('course.program_id', '=', $id)
                     ->get();
-        $teacher_id = $teacher_id->__toString(); 
-        $users = array();
-        if(strlen($teacher_id) > 15){
-            $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
-        }else{
-            //dd(gettype(compact($users)));
-            return view('teachers.index', compact('users'));
-        }
-        return view('teachers.index', compact('users'));
+        return view('courses.index', compact('courses'));
     }
 }
