@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <title>SuperAdmin </title>
+<link rel="stylesheet" href="{{ asset('css/super_admin.css') }}">
+
 @section('content')
 
 <div class="container main_wrapper">
