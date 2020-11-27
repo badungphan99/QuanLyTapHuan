@@ -53,9 +53,6 @@
         text-decoration:none !important;
         }
 
-        .login-register{
-            align-content: center;
-        }
 
 
         /* .modal-content .close{
@@ -91,148 +88,26 @@
                     </li>
                     @if (Route::has('login'))
                         @auth
-                        <li>
-                            <span class=" dropdown">
-                                <span class="animate-dropdown "><i class="far fa-user"></i>&nbsp  {{Auth::user()->username}}</span>
-                                <div class="dropdown-content ">
-                                    <a href="{{ url('/home') }}"><i class="fas fa-home"></i>&nbsp Home</a>
-                                    <a href="#" data-toggle="tooltip" title="Log out"><i class="fas fa-sign-out-alt"></i>&nbsp Đăng xuất</a>
-                                </div>
-                            </span>
-                        </li>
-                        @else
-                            <span class="login-register">
-                                <li><a href="{{url ('/login')}}"><button class = 'btn btn-link'>Đăng nhập</button></a></li>
-                                @if (Route::has('register'))
-                                <li><a href="{{url ('register')}}"><button class = 'btn btn-link'>Đăng ký</button></a></li>
-                                @endif
-                            </span>
+                            <li>
+                                <span class=" dropdown">
+                                    <span class="animate-dropdown "><i class="far fa-user"></i>&nbsp  {{Auth::user()->username}}</span>
+                                    <div class="dropdown-content ">
+                                        <a href="{{ url('/home') }}"><i class="fas fa-home"></i>&nbsp Home</a>
+                                        <a href="{{url ('logout')}}" data-toggle="tooltip" title="Log out"><i class="fas fa-sign-out-alt"></i>&nbsp Đăng xuất</a>
+                                    </div>
+                                </span>
+                            </li>
+                            @else
+                            <li><a href="{{url ('/login')}}">Đăng nhập</a></li>
+                            @if (Route::has('register'))
+                            <li><a href="{{url ('register')}}">Đăng ký</a></li>
+                            @endif
                         @endauth
                     @endif
                 </ul>
             </div>
             <!-- </nav> -->
         </nav>
-        <!-- <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
-            <div class="modal-dialog modal-sm" role = 'document'>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id = "loginlabel">Đăng nhập</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form method = "POST" action="{{route('login')}}">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="username-login" class="#"><b>{{ __('Tên người dùng')}}</b></label>
-                                <input type="text" id = "username-login" class = "form-control @error('username') is-invalid @enderror" name = "username" value = "{{ old('username') }}" placeholder = "Enter your username.." autocomplete = "username" autofocus required>
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="password-login" class="#"><b>{{ __('Mật khẩu')}}</b></label>
-                                <input type="password" id = "password-login" class = "form-control @error('password') is-invalid @enderror" name = "password" placeholder = "Enter your password.." autocomplete="current-password" required>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Ghi nhớ mật khẩu') }}
-                                </label>
-                                @if (Route::has('password.request'))
-                                    <a class = "btn btn-forgot" style = 'margin: 0px;' href="{{ route('password.request') }}">
-                                        {{ __('Quên mật khẩu?') }}
-                                    </a>
-                                @endif
-                            </div>
-
-                            <div class="form-group">
-                                <div class="#" >
-                                    <button type="submit" class="btn btn-outline-dark" style = "width:100%; margin: 0.5rem 0;">
-                                        {{ __('Đăng nhập') }}
-                                    </button>
-                                </div>
-                                <div class="btn-signin" style = "text-align: center;">
-                                    @if (Route::has('register'))
-                                        <span>Chưa có tài khoản?</span><a class="btn" data-toggle = "modal" href="#registerModal" style = 'padding: 0px; text-decoration:underline;'>Đăng ký tại đây!</a>
-                                    @endif
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id = "registerModal" tabindex = "-1" role = 'dialog' aria-labelledby = "registerlabel" aria-hidden = "true" data-backdrop = "false">
-            <div class="modal-dialog modal-sm" role = 'document'>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id = "registerlabel">ĐĂNG KÝ TÀI KHOẢN</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form method = "POST" action="{{route('login')}}">
-                        @csrf
-                        <div class="modal-body">
-
-                            <div class="form-group">
-                                <label for="fullname" class="#"><b>{{ __('Họ và tên: ')}}</b></label>
-                                <input type="text" id = "fullname" class="form-control @error('fullname') is-invalid @enderror" name = "fullname" value = "{{ old('fullname') }}" placeholder = "Enter your fullname.." autocomplete = "fullname" autofocus required>
-                            </div>
-                            <div class="form-group">
-                                <label for="username" class="#"><b>{{ __('Tên đăng nhập: ')}}</b></label>
-                                <input type="text" id = "username" class = "form-control @error('username') is-invalid @enderror" name = "username" value = "{{ old('username') }}" placeholder = "Enter your username.." autocomplete = "username"required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="#"><b>{{ __('Email: ')}}</b></label>
-                                <input type="text" id = "email" class = "form-control @error('email') is-invalid @enderror" name = "email" value = "{{ old('email') }}" placeholder = "Enter your email.." autocomplete = "email "required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="#"><b>{{ __('Mật khẩu: ')}}</b></label>
-                                <input type="password" id = "password" class = "form-control @error('password') is-invalid @enderror" name = "password" placeholder = "Enter your password.." autocomplete="current-password" required>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="password_cf" class="#"><b>{{ __('Xác nhận mật khẩu: ')}}</b></label>
-                                <input type="password" id = "password_cf" class = "form-control" name = "password_cf" placeholder = "Password confirm..." required>
-                            </div>
-
-                            <div class="row form-group justify-content-center">
-                                <div class="btn-signup" >
-                                    <button type="submit" class="btn btn-outline-dark">
-                                        {{ __('Đăng ký tài khoản') }}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row form-group justify-content-center">
-                                <div class="btn-signin">
-                                    @if (Route::has('login'))
-                                        <span>Bạn đã có tài khoản? </span> <a class="btn" data-toggle = "modal" data-target = "#loginModal" href="#loginModal" style = 'padding: 0px; text-decoration:underline;'>Đăng nhập tại đây!</a>
-                                    @endif
-                                </div>
-                            </div>
-                        </div><br>
-                    </form>
-                </div>
-            </div>
-        </div> -->
-
-
         <main class = "site-content">
             @yield('content')
         </main>

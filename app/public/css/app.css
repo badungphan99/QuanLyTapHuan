@@ -22,6 +22,11 @@ body{
 
 }
 
+.login-register{
+    text-align:center;
+    position: relative;
+}
+
 
 ul li ul.dropdown{
     align-content:left;
@@ -80,7 +85,4 @@ a{
     text-decoration:none !important;
 }
 
-button .navbar-toggler{
-    
-}
 
