@@ -159,94 +159,100 @@
                             </thead>
 
                             <tbody style=" background-color: white; ">
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>Fullname</td>
-                                    <td>Username</td>
-                                    <td>Role</td>
-                                    <td>Unit</td>
-                                    <td>Email</td>
-                                    <td>Phone number</td>
-                                    <td>Position</td>
-                                    <td>
-                                        <a href="" style="color:black;margin-left:5px; font-size:20px" data-toggle="modal" data-target="#modalEdit"><i class="fas fa-edit"></i></a>
-                                        <div id="modalEdit" class="modal fade" role="dialog">
-                                            <div class="modal-dialog" style="width:500px; height:800px">
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h3 class="modal-title" id="loginlabel">CẬP NHẬT THÔNG TIN</h3>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="col-md-12">
-                                                            <form action="">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group"><label class="form-label control-label">Họ tên</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Tên đăng nhập</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10" readonly></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Mật khẩu</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <!-- <div class="form-group"><label class="form-label control-label">Xác nhận mật khẩu</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div> -->
-                                                                    <div class="form-group"><label class="form-label control-label">Đơn vị</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <!-- position -->
-                                                                    <div class="form-group"><label class="form-label control-label">Chức vụ</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Chức vụ" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Email</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Email khác</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 ">
-                                                                    <div class="form-group"><label class="form-label control-label">Điện thoại</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Số điện thoại khác</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Vai trò</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Học hàm</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Học vị</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                    <div class="form-group"><label class="form-label control-label">Ghi chú</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
+                                @foreach ($listUser as $user)
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>{{ $user['fullname'] }}</td>
+                                        <td>{{ $user['username'] }}</td>
+                                        <td>@if ($user['role'] == 1) Quản trị hệ thống
+                                            @elseif ($user['role'] == 2) Quản lý
+                                            @elseif ($user['role'] == 3) Giáo viên
+                                            @elseif ($user['role'] == 3) Học viên
+                                            @endif</td>
+                                        <td>{{ $user['unit'] }}</td>
+                                        <td>{{ $user['email'] }}</td>
+                                        <td>{{ $user['phone_number'] }}</td>
+                                        <td>{{ $user['position'] }}</td>
+                                        <td>
+                                        <a href="" style="color:black;margin-left:5px; font-size:20px" data-toggle="modal" data-target="#modalEdit{{$user['id']}}"><i class="fas fa-edit"></i></a>
+                                        <div id="modalEdit{{$user['id']}}" class="modal fade" role="dialog">
+                                                <div class="modal-dialog" style="width:500px; height:800px">
+                                                    <!-- Modal content-->
+                                                    <form action="{{url('/superAdmin/update_info_user')}}" method="POST" id="{{ $user['id'] }}">
+                                                        @csrf <!-- {{ csrf_field() }} -->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h3 class="modal-title" id="loginlabel">CẬP NHẬT THÔNG TIN</h3>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="col-md-12">
 
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group"><label class="form-label control-label">Họ tên</label>
+                                                                                <div class="form-wrap"><input id="" name="fullname" class="form-control" type="text" maxlength="10" value="{{ $user['fullname'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Tên đăng nhập</label>
+                                                                            <div class="form-wrap"><input id="" name="username" class="form-control" type="text" maxlength="10" readonly value="{{ $user['username'] }}"></div>
+                                                                            </div>
+                                                                            {{-- <div class="form-group"><label class="form-label control-label">Mật khẩu</label>
+                                                                                <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10" value="{{ $user['password'] }}"></div>
+                                                                            </div> --}}
+                                                                            <!-- <div class="form-group"><label class="form-label control-label">Xác nhận mật khẩu</label>
+                                                                                <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
+                                                                            </div> -->
+                                                                            <div class="form-group"><label class="form-label control-label">Đơn vị</label>
+                                                                                <div class="form-wrap"><input id="" name="unit" class="form-control" type="text" maxlength="10" value="{{ $user['unit'] }}"></div>
+                                                                            </div>
+                                                                            <!-- position -->
+                                                                            <div class="form-group"><label class="form-label control-label">Chức vụ</label>
+                                                                                <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="10" value="{{ $user['role'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Email</label>
+                                                                                <div class="form-wrap"><input id="" name="email" class="form-control" type="text" maxlength="10" value="{{ $user['email'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Email khác</label>
+                                                                                <div class="form-wrap"><input id="" name="other_email" class="form-control" type="text" maxlength="10" value="{{ $user['other_email'] }}"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 ">
+                                                                            <div class="form-group"><label class="form-label control-label">Điện thoại</label>
+                                                                                <div class="form-wrap"><input id="" name="phone_number" class="form-control" type="text" maxlength="10" value="{{ $user['phone_number'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Số điện thoại khác</label>
+                                                                                <div class="form-wrap"><input id="" name="other_phone_numer" class="form-control" type="text" maxlength="10" value="{{ $user['other_phone_number'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Vai trò</label>
+                                                                                <div class="form-wrap"><input id="" name="position" class="form-control" type="text" maxlength="10" value="{{ $user['position'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Học hàm</label>
+                                                                                <div class="form-wrap"><input id="" name="academic_rank" class="form-control" type="text" maxlength="10" value="{{ $user['academic_rank'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Học vị</label>
+                                                                                <div class="form-wrap"><input id="" name="academic_degree" class="form-control" type="text" maxlength="10" value="{{ $user['academic_degree'] }}"></div>
+                                                                            </div>
+                                                                            <div class="form-group"><label class="form-label control-label">Ghi chú</label>
+                                                                                <div class="form-wrap"><input id="" name="note" class="form-control" type="text" maxlength="10" value="{{ $user['note'] }}"></div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-outline-dark">Save</button>
+                                                                <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
-                                                        <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fa fa-trash-o "></i></a>
-
-                                        <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fas fa-user"></i></a>
-
-                                    </td>
-                                </tr>
+                                            <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fa fa-trash-o "></i></a>
+                                            <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fas fa-user"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
 
                         </table>
