@@ -52,7 +52,13 @@
         color: black;
         text-decoration:none !important;
         }
-        .modal-content .close{
+
+        .login-register{
+            align-content: center;
+        }
+
+
+        /* .modal-content .close{
             transform: translateX(-50%);
             position: relative;
             color: black;
@@ -64,7 +70,7 @@
             left: 0%;
             top:0px;
             margin-top: 2px;
-        }
+        } */
 
     </style>
     
@@ -95,19 +101,19 @@
                             </span>
                         </li>
                         @else
-                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#loginModal">Đăng nhập</button></li>
-
-                            @if (Route::has('register'))
-                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#registerModal">Đăng ký</button></li>
-
-                            @endif
+                            <span class="login-register">
+                                <li><a href="{{url ('/login')}}"><button class = 'btn btn-link'>Đăng nhập</button></a></li>
+                                @if (Route::has('register'))
+                                <li><a href="{{url ('register')}}"><button class = 'btn btn-link'>Đăng ký</button></a></li>
+                                @endif
+                            </span>
                         @endauth
                     @endif
                 </ul>
             </div>
             <!-- </nav> -->
         </nav>
-        <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
+        <!-- <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
             <div class="modal-dialog modal-sm" role = 'document'>
                 <div class="modal-content">
                     <div class="modal-header">
@@ -183,29 +189,14 @@
                             <div class="form-group">
                                 <label for="fullname" class="#"><b>{{ __('Họ và tên: ')}}</b></label>
                                 <input type="text" id = "fullname" class="form-control @error('fullname') is-invalid @enderror" name = "fullname" value = "{{ old('fullname') }}" placeholder = "Enter your fullname.." autocomplete = "fullname" autofocus required>
-                                <!-- @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="username" class="#"><b>{{ __('Tên đăng nhập: ')}}</b></label>
                                 <input type="text" id = "username" class = "form-control @error('username') is-invalid @enderror" name = "username" value = "{{ old('username') }}" placeholder = "Enter your username.." autocomplete = "username"required>
-                                <!-- @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="email" class="#"><b>{{ __('Email: ')}}</b></label>
                                 <input type="text" id = "email" class = "form-control @error('email') is-invalid @enderror" name = "email" value = "{{ old('email') }}" placeholder = "Enter your email.." autocomplete = "email "required>
-                                <!-- @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="password" class="#"><b>{{ __('Mật khẩu: ')}}</b></label>
@@ -219,11 +210,6 @@
                             <div class="form-group">
                                 <label for="password_cf" class="#"><b>{{ __('Xác nhận mật khẩu: ')}}</b></label>
                                 <input type="password" id = "password_cf" class = "form-control" name = "password_cf" placeholder = "Password confirm..." required>
-                                <!-- @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
 
                             <div class="row form-group justify-content-center">
@@ -244,7 +230,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <main class = "site-content">
