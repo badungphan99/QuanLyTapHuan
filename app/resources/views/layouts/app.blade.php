@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>     -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,16 +22,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+
  <!--  -->
- 
+
      <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
- 
+
  <!--  -->
 
     <!-- Styles -->
@@ -43,18 +43,22 @@
     <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/super_admin.css') }}"/>
+    <!-- <link rel="stylesheet" href="{{ asset('css/super_admin.css') }}"/> -->
+
 
 
 <style>
-        main{
-            overflow:auto;
-        }
         .btn-link{
         color: black;
         text-decoration:none !important;
         }
-        .modal-content .close{
+
+        .login-register{
+            align-content: center;
+        }
+
+
+        /* .modal-content .close{
             transform: translateX(-50%);
             position: relative;
             color: black;
@@ -66,42 +70,50 @@
             left: 0%;
             top:0px;
             margin-top: 2px;
-        }
-        footer{
-            margin: 0px !important;
-        }
+        } */
+
     </style>
-    
+
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg bg-light navbar-fixed-top">
             <a href="{{url ('/') }}"><div class="logo">
                 <img src="../img/logo.png" alt="Venue Logo">
             </div></a>
-            <!-- <nav id="primary-nav" class="dropdown cf"> -->
+            <button class="navbar-toggler btn-lg " type="link" data-toggle="collapse" data-target="#headnav"><span><i class="fa fa-bars"></i></span></button>
+            <div class="collapse navbar-collapse justify-content-end" id="headnav">
                 <ul class="dropdown menu">
                     <li>
                         <form class="form-inline" action="">
                             <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm">
-                            <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-dark" style="padding: 6.5px 10px" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                        <li>
+                            <span class=" dropdown">
+                                <span class="animate-dropdown "><i class="far fa-user"></i>&nbsp  {{Auth::user()->username}}</span>
+                                <div class="dropdown-content ">
+                                    <a href="{{ url('/home') }}"><i class="fas fa-home"></i>&nbsp Home</a>
+                                    <a href="#" data-toggle="tooltip" title="Log out"><i class="fas fa-sign-out-alt"></i>&nbsp Đăng xuất</a>
+                                </div>
+                            </span>
+                        </li>
                         @else
-                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#loginModal">Đăng nhập</button></li>
-                            
-                            @if (Route::has('register'))
-                            <li><button class = 'btn btn-link' data-toggle ="modal" data-target = "#registerModal">Đăng ký</button></li>
-                        
-                            @endif
+                            <span class="login-register">
+                                <li><a href="{{url ('/login')}}"><button class = 'btn btn-link'>Đăng nhập</button></a></li>
+                                @if (Route::has('register'))
+                                <li><a href="{{url ('register')}}"><button class = 'btn btn-link'>Đăng ký</button></a></li>
+                                @endif
+                            </span>
                         @endauth
                     @endif
                 </ul>
+            </div>
             <!-- </nav> -->
-        </nav> 
-        <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
+        </nav>
+        <!-- <div class="modal fade" id = "loginModal" tabindex = "-1" role = 'dialog' aria-labelledby = "#loginlabel" aria-hidden = "true"  data-backdrop = "true">
             <div class="modal-dialog modal-sm" role = 'document'>
                 <div class="modal-content">
                     <div class="modal-header">
@@ -142,7 +154,7 @@
                                     </a>
                                 @endif
                             </div>
-                        
+
                             <div class="form-group">
                                 <div class="#" >
                                     <button type="submit" class="btn btn-outline-dark" style = "width:100%; margin: 0.5rem 0;">
@@ -173,33 +185,18 @@
                     <form method = "POST" action="{{route('login')}}">
                         @csrf
                         <div class="modal-body">
-                        
+
                             <div class="form-group">
                                 <label for="fullname" class="#"><b>{{ __('Họ và tên: ')}}</b></label>
                                 <input type="text" id = "fullname" class="form-control @error('fullname') is-invalid @enderror" name = "fullname" value = "{{ old('fullname') }}" placeholder = "Enter your fullname.." autocomplete = "fullname" autofocus required>
-                                <!-- @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="username" class="#"><b>{{ __('Tên đăng nhập: ')}}</b></label>
                                 <input type="text" id = "username" class = "form-control @error('username') is-invalid @enderror" name = "username" value = "{{ old('username') }}" placeholder = "Enter your username.." autocomplete = "username"required>
-                                <!-- @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="email" class="#"><b>{{ __('Email: ')}}</b></label>
                                 <input type="text" id = "email" class = "form-control @error('email') is-invalid @enderror" name = "email" value = "{{ old('email') }}" placeholder = "Enter your email.." autocomplete = "email "required>
-                                <!-- @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="password" class="#"><b>{{ __('Mật khẩu: ')}}</b></label>
@@ -213,13 +210,8 @@
                             <div class="form-group">
                                 <label for="password_cf" class="#"><b>{{ __('Xác nhận mật khẩu: ')}}</b></label>
                                 <input type="password" id = "password_cf" class = "form-control" name = "password_cf" placeholder = "Password confirm..." required>
-                                <!-- @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror -->
                             </div>
-                        
+
                             <div class="row form-group justify-content-center">
                                 <div class="btn-signup" >
                                     <button type="submit" class="btn btn-outline-dark">
@@ -238,15 +230,15 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
-        <main>
+        <main class = "site-content">
             @yield('content')
         </main>
         <footer class="py-5 bg-light">
             <div class="container">
-                <div class="contact-info">                         
+                <div class="contact-info">
                     <div class="footer-heading">
                         <h4>Thông tin liên hệ</h4>
                     </div>

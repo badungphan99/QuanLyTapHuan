@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>Đặt Lại Mật Khẩu @yield('title')</title>
+<title>Quên mật khẩu @yield('title')</title>
 <style>
     .container{
         /* height: 100vh; */

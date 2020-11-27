@@ -3,6 +3,8 @@ body {
   position: relative;
   font-family: 'Raleway', 'sans-serif';
   background-color: #fff;
+  padding-top: 69px;
+  
 }
 
 ul {
@@ -12,7 +14,7 @@ ul {
 }
 
 p {
-  font-size: 13px;
+  font-size: 14px;
   color: #7a7a7a;
   /* line-height: 24px; */
   left: 0.25px;
@@ -51,6 +53,10 @@ section {
 .navbar {
   border: 0px;
   margin-bottom: 0px;
+  width: 100%;
+  position: fixed !important;
+  z-index: 1040;
+  top: 0;
   /* background-color: white; */
 }
 
@@ -114,6 +120,7 @@ section {
 
 
 .logo {
+  margin-left: 50px;
   float: left;
 }
 
@@ -781,10 +788,6 @@ section.contact .section-heading {
     top: -100%;
     opacity: 0;
   }  
-}
-
-.next {
-  padding-left: 1230px;   
 }
 
 .next a {
