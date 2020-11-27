@@ -14,7 +14,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- Styles -->
         <style>
-            
+
         </style>
     </head>
     <body>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-4"></div>
             </div>
-            
+
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>
@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <label for=""><b>Chương trình: </b></label>
-                                                <p class="font-weight-light">{{ $course->program }}</p>
+                                                <p class="font-weight-light">{{ $course->program_id }}</p>
                                                 <label for=""><b>Nội dung: </b></label>
                                                 <p class="font-weight-light">{{ $course->content }}</p>
                                                 <label for=""><b>Ngày khai giảng: </b></label>
