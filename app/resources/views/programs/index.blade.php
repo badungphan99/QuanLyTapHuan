@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Courses Manager</title>
+        <title>Program Manager</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -20,11 +20,11 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <h1>Danh sách khóa tập huấn</h1>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <h1>Danh sách các chương trình tập huấn</h1>
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-2"></div>
             </div>
             
             <div class="table-responsive">
@@ -32,34 +32,37 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Họ và tên</th>
-                            <th>Email</th>
-                            <th>Số điện thoại</th>
+                            <th>Tên chương trình</th>
+                            <th>Chương trình tập huấn</th>
                             <th>Trạng thái</th>
+                            <th>Các khóa học</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($users) == 0)
+                        @if ($programs->count() == 0)
                             <tr>
                                 <td colspan="11">
-                                    <h5 class="text-warning text-center">Không tìm thấy giảng viên nào</h5>
+                                    <h5 class="text-warning text-center">Không tìm thấy chương trình nào</h5>
                                 </td>
                             </tr>
                         @endif
-                        @foreach ($users as $key => $user)
+                        @foreach ($programs as $key => $program)
                             <tr>
                                 <th scope="row">{{ ++$key }}</td>
-                                <td><label for="">{{ $user->fullname }}</label></td>
-                                <td><p class="font-weight-light">{{ $user->email }}</p></td>
-                                <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
-                                <td><p class="font-weight-light">{{ $user->status }}</p></td>
+                                <td><label for="">{{ $program->name }}</label></td>
+                                <td><p class="font-weight-light">{{ $program->program }}</p></td>
+                                <td><p class="font-weight-light">{{ $program->status }}</p></td>
+                                <td><a href="/course" class="btn btn-success">Các khóa học</a></td>
+                                <td>
+                                    <a href="/program/edit/{{ $program->id }}" class="btn btn-outline-warning">Chỉnh sửa</a>                    
+                                </td>
                             </tr>
-                        @endforeach
+                        @endforeach                       
                     </tbody>
                 </table>
             </div>
-            <a href="/course/create" class="btn btn-primary" id="create_course">Thêm mới</a>
+            <a href="/program/create" class="btn btn-primary" id="create_course">Thêm mới</a>
         </div>
     </body>
 </html>

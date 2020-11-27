@@ -22,12 +22,10 @@ class SuperAdminController extends Controller
     }
 
     public function update_info_user(Request $request){
-        $myfile = fopen("C:\\Users\\hoangi19\\Desktop\\debug.txt", "w");
-        fwrite($myfile, "asdasd");
+
         // $this->validator($request->all())->validate();
         // dd($request->all());  //to check all the datas dumped from the form
         $user = User::where('username', '=', $request->username)->first();
-        fwrite($myfile, $user);
         $user->fullname = $request->fullname;
         $user->unit = $request->unit;
         $user->role = $request->role;
@@ -40,8 +38,6 @@ class SuperAdminController extends Controller
         $user->note = $request->note;
 
         $user->save();
-        fwrite($myfile, '\rn');
-        fwrite($myfile, $user);
         return redirect('superAdmin')->with('status',"update successfully");
     }
 
@@ -58,7 +54,6 @@ class SuperAdminController extends Controller
             'academic_degree' => ['string', 'max:255'],
         ]);
     }
-
     // public function show_data()
     // {
     //     $makeups=DB::table('products');
