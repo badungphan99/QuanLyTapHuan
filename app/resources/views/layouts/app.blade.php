@@ -93,6 +93,7 @@
                                     <span class="animate-dropdown "><i class="far fa-user"></i>&nbsp  {{Auth::user()->username}}</span>
                                     <div class="dropdown-content ">
                                         <a href="{{ url('/home') }}"><i class="fas fa-home"></i>&nbsp Home</a>
+                                        <a href="{{ url('/password/update') }}"><i class="fas fa-key"></i></i>&nbsp Đổi mật khẩu</a>
                                         <a href="{{url ('logout')}}" data-toggle="tooltip" title="Log out"><i class="fas fa-sign-out-alt"></i>&nbsp Đăng xuất</a>
                                     </div>
                                 </span>
