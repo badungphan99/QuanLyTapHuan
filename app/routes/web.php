@@ -52,7 +52,7 @@ Route::post('/course/store', 'CourseController@store')->name('store_course');
 Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');
 Route::post('/course/edit/{id}', 'CourseController@update')->name('edit_course');
 Route::get('/course/teacher/{id}', 'CourseController@view_teacher')->name('view_teacher');
-
+Route::post('/teacher/store/{id}', 'CourseController@store_teacher')->name('store_teacher');
 
 Route::get('/program', 'ProgramController@index')->name('index_program');
 Route::get('/program/create', 'ProgramController@create')->name('create_program_form');
@@ -60,4 +60,6 @@ Route::post('/program/store', 'ProgramController@store')->name('store_program');
 Route::get('/program/edit/{id}', 'ProgramController@show')->name('show_program');
 Route::post('/program/edit/{id}', 'ProgramController@update')->name('edit_program');
 Route::get('/program/courses/{id}', 'ProgramController@view_course')->name('view_course');
+
+
 

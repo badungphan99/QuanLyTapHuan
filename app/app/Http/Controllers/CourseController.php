@@ -116,21 +116,39 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
+
+    public function create_teacher()
+    {
+        return view('teachers.create');
+    }
+
     public function view_teacher($id)
     {
         $teacher_id = DB::table('teacher')
                     ->select('teacher_id')
                     ->where('teacher.class_id', '=', $id)
+                    ->distinct('teacher_id')
                     ->get();
         $teacher_id = $teacher_id->__toString(); 
         $users = array();
-        if(strlen($teacher_id) > 15){
-            $users = DB::table('users')->where('id', '=', intval($teacher_id[15]))->get();
-        }else{
-            return view('teachers.index', compact('users'));
+        $i = 15;
+        while( $i < strlen($teacher_id) ){
+            $user = DB::table('users')->where('id', '=', intval($teacher_id[$i]))->get();
+            array_push($users, $user[0]);
+            $i = $i + 17;
         }
-        return view('teachers.index', compact('users'));
+        return view('teachers.index')->with('class_id', $id)->with('users', $users);
+    }
+
+    public function store_teacher(Request $request, $id)
+    {
+        $data = $request->input('teacher_id');
+        DB::table('teacher')->insert(
+            ['teacher_id' => $data, 'class_id' => $id]
+        );
+        $users = DB::table('teacher')->get();
+        return redirect('course');
     }
 }

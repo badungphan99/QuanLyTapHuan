@@ -58,8 +58,16 @@
                         @endforeach
                     </tbody>
                 </table>
+            <form action="/teacher/store/{{$class_id}}" method="post">
+                @csrf
+                <label for="teachers">Giảng viên:</label>
+                <select class="form-control" name="teacher_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+            </form>
             </div>
-            <a href="/teacher/create" class="btn btn-primary" id="create_teacher">Thêm mới</a>
         </div>
     </body>
 </html>
