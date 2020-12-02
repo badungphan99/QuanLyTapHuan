@@ -52,6 +52,29 @@ class SuperAdminController extends Controller
         ]);
     }
 
+    public function create_new_account(Request $request){
+//        dd($request);
+        $user = new User();
+
+        $user->username = $request->username;
+        $user->password = $request->password;
+        $user->fullname = $request->fullname;
+        $user->email = $request->email;
+        $user->unit = $request->unit;
+        $user->role = $request->role;
+        $user->other_email = $request->other_email;
+        $user->phone_number = $request->phone_number;
+        $user->other_phone_number = $request->other_phone_number;
+        $user->position = $request->position;
+        $user->academic_rank = $request->academic_rank;
+        $user->academic_degree = $request->academic_degree;
+        $user->note = $request->note;
+
+        $user->save();
+
+        return redirect('superAdmin')->with('status',"create successfully");
+    }
+
     // public function show_data()
     // {
     //     $makeups=DB::table('products');

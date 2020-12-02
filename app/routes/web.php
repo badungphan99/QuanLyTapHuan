@@ -44,6 +44,8 @@ Route::post('/password/update', 'Auth\UpdatePasswordController@updatePassword')-
 Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
 Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
 Route::post('/superAdmin/update_info_user', 'SuperAdminController@update_info_user')->name('update_info_user');
+Route::post('/superAdmin/create-new-account', 'SuperAdminController@create_new_account')->name('create_new_account');
+
 
 Route::get('/user/show', 'Users\UserController@show')->middleware('auth')->name('user.showinfo');
 Route::post('user/update','Users\UserController@update')->middleware('auth')->name('user.updateInfo');
