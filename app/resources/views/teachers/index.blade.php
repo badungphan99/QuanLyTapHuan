@@ -3,16 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Courses Manager</title>
-
-        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- Styles -->
         <style>
             
         </style>
@@ -20,11 +16,11 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <h1>Danh sách giảng viên</h1>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <h1>Danh sách giảng viên của khóa</h1>
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-2"></div>
             </div>
             
             <div class="table-responsive">
@@ -53,7 +49,13 @@
                                 <td><label for="">{{ $user->fullname }}</label></td>
                                 <td><p class="font-weight-light">{{ $user->email }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
-                                <td><p class="font-weight-light">{{ $user->status }}</p></td>
+                                <td>  
+                                @if ($user->status == 1)
+                                    <p class="font-weight-dark">Active</p>
+                                @else
+                                    <p class="font-weight-light">Inactive</p>
+                                @endif
+                                </td>
                                 <td><a href="/teacher/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
                             </tr>
                         @endforeach
