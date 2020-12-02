@@ -149,6 +149,11 @@ class CourseController extends Controller
             ['teacher_id' => $data, 'class_id' => $id]
         );
         $users = DB::table('teacher')->get();
-        return redirect('course');
+        return redirect('course')->with('status', 'Đã thêm giảng viên!');
+    }
+    public function delete_teacher($id)
+    {
+        DB::delete('delete from teacher where teacher_id = ?',[$id]);
+        return redirect('course')->with('status', 'Đã xóa giảng viên!')->with('class_id', $id);
     }
 }

@@ -26,7 +26,11 @@
                 </div>
                 <div class="col-sm-4"></div>
             </div>
-            
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>
@@ -59,6 +63,7 @@
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exam{{$course->id}}">
                                         Chi tiết
                                     </button>
+                                    
                                     <div class="modal fade" id="exam{{$course->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">

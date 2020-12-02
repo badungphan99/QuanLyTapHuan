@@ -54,18 +54,19 @@
                                 <td><p class="font-weight-light">{{ $user->email }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->status }}</p></td>
+                                <td><a href="/teacher/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             <form action="/teacher/store/{{$class_id}}" method="post">
                 @csrf
-                <label for="teachers">Giảng viên:</label>
+                <span class="badge badge-success">Giảng viên:</span>
                 <select class="form-control" name="teacher_id">
                     <option value="1">1</option>
                     <option value="2">2</option>
                 </select>
-                <button type="submit" class="btn btn-primary">Thêm mới</button>
+                <button type="submit" class="btn btn-dark">Thêm mới</button>
             </form>
             </div>
         </div>
