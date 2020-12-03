@@ -140,7 +140,6 @@ class CourseController extends Controller
             $i = $i + 17;
         }
         $teachers = DB::table('users')->where('role', '=', 3)->get();
-        //dd($teachers);
         return view('teachers.index')->with('class_id', $id)->with('users', $users)->with('teachers', $teachers);
     }
 
@@ -153,9 +152,30 @@ class CourseController extends Controller
         $users = DB::table('teacher')->get();
         return redirect('course')->with('status', 'Đã thêm giảng viên!');
     }
+
     public function delete_teacher($id)
     {
         DB::delete('delete from teacher where teacher_id = ?',[$id]);
         return redirect('course')->with('status', 'Đã xóa giảng viên!')->with('class_id', $id);
+    }
+
+    public function view_student($id)
+    {
+        $student_id = DB::table('enroll')
+                    ->select('student_id')
+                    ->where('enroll.class_id', '=', $id)
+                    ->distinct('student_id')
+                    ->get();
+        $student_id = $student_id->__toString();
+        $users = array();
+        $i = 15;
+        while( $i < strlen($student_id) ){
+            $user = DB::table('users')->where('id', '=', intval($student_id[$i]))->get();
+            array_push($users, $user[0]);
+            $i = $i + 17;
+        }
+        //dd($users);
+        $students = DB::table('users')->where('role', '=', 4)->get();
+        return view('students.index')->with('class_id', $id)->with('users', $users)->with('students', $students);
     }
 }
