@@ -153,7 +153,7 @@ class CourseController extends Controller
         return redirect('course')->with('status', 'Đã thêm giảng viên!');
     }
 
-    
+
     public function delete_teacher($id)
     {
         DB::delete('delete from teacher where teacher_id = ?',[$id]);
@@ -178,5 +178,21 @@ class CourseController extends Controller
         //dd($users);
         $students = DB::table('users')->where('role', '=', 4)->get();
         return view('students.index')->with('class_id', $id)->with('users', $users)->with('students', $students);
+    }
+
+    public function store_student(Request $request, $id)
+    {
+        $data = $request->input('student_id');
+        DB::table('enroll')->insert(
+            ['student_id' => $data, 'class_id' => $id]
+        );
+        $users = DB::table('teacher')->get();
+        return redirect('course')->with('status', 'Đã thêm sinh viên!');
+    }
+
+    public function delete_student($id)
+    {
+        DB::delete('delete from enroll where student_id = ?',[$id]);
+        return redirect('course')->with('status', 'Đã xóa sinh viên!')->with('class_id', $id);
     }
 }

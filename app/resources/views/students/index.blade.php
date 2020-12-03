@@ -56,7 +56,7 @@
                                     <p class="font-weight-light">Inactive</p>
                                 @endif
                                 </td>
-                                <td><a href="/teacher/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
+                                <td><a href="/student/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
