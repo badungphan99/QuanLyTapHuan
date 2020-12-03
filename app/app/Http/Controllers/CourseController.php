@@ -153,6 +153,7 @@ class CourseController extends Controller
         return redirect('course')->with('status', 'Đã thêm giảng viên!');
     }
 
+    
     public function delete_teacher($id)
     {
         DB::delete('delete from teacher where teacher_id = ?',[$id]);
