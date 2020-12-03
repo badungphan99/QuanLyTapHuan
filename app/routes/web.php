@@ -55,7 +55,7 @@ Route::get('/course/teacher/{id}', 'CourseController@view_teacher')->name('view_
 Route::post('/teacher/store/{id}', 'CourseController@store_teacher')->name('store_teacher');
 Route::get('/teacher/delete/{id}', 'CourseController@delete_teacher')->name('delete_teacher');
 
-Route::get('/course/student/{id}', 'CourseController@view_student')->name('view_teacher');
+Route::get('/course/student/{id}', 'CourseController@view_student')->name('view_student');
 Route::post('/student/store/{id}', 'CourseController@store_student')->name('store_student');
 Route::get('/student/delete/{id}', 'CourseController@delete_student')->name('delete_student');
 

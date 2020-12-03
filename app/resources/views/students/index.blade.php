@@ -22,7 +22,11 @@
                 </div>
                 <div class="col-sm-2"></div>
             </div>
-            
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>

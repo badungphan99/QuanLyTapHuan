@@ -149,8 +149,21 @@ class CourseController extends Controller
         DB::table('teacher')->insert(
             ['teacher_id' => $data, 'class_id' => $id]
         );
-        $users = DB::table('teacher')->get();
-        return redirect('course')->with('status', 'Đã thêm giảng viên!');
+        $teacher_id = DB::table('teacher')
+                    ->select('teacher_id')
+                    ->where('teacher.class_id', '=', $id)
+                    ->distinct('teacher_id')
+                    ->get();
+        $teacher_id = $teacher_id->__toString(); 
+        $users = array();
+        $i = 15;
+        while( $i < strlen($teacher_id) ){
+            $user = DB::table('users')->where('id', '=', intval($teacher_id[$i]))->get();
+            array_push($users, $user[0]);
+            $i = $i + 17;
+        }
+        $teachers = DB::table('users')->where('role', '=', 3)->get();
+        return view('teachers.index')->with('class_id', $id)->with('users', $users)->with('teachers', $teachers)->with('status', 'Đã thêm giảng viên!');
     }
 
 
@@ -186,13 +199,27 @@ class CourseController extends Controller
         DB::table('enroll')->insert(
             ['student_id' => $data, 'class_id' => $id]
         );
-        $users = DB::table('teacher')->get();
-        return redirect('course')->with('status', 'Đã thêm sinh viên!');
+
+        $student_id = DB::table('enroll')
+                    ->select('student_id')
+                    ->where('enroll.class_id', '=', $id)
+                    ->distinct('student_id')
+                    ->get();
+        $student_id = $student_id->__toString();
+        $users = array();
+        $i = 15;
+        while( $i < strlen($student_id) ){
+            $user = DB::table('users')->where('id', '=', intval($student_id[$i]))->get();
+            array_push($users, $user[0]);
+            $i = $i + 17;
+        }
+        $students = DB::table('users')->where('role', '=', 4)->get();
+        return view('students.index')->with('users', $users)->with('class_id', $id)->with('students', $students)->with('status', 'Đã thêm sinh viên!');
     }
 
     public function delete_student($id)
     {
         DB::delete('delete from enroll where student_id = ?',[$id]);
-        return redirect('course')->with('status', 'Đã xóa sinh viên!')->with('class_id', $id);
+        return redirect('course')->with('status', 'Đã xóa sinh viên!');
     }
 }
