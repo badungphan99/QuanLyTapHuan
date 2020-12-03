@@ -65,8 +65,9 @@
                 @csrf
                 <span class="badge badge-success">Giảng viên:</span>
                 <select class="form-control" name="teacher_id">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
+                    @endforeach 
                 </select>
                 <button type="submit" class="btn btn-dark">Thêm mới</button>
             </form>

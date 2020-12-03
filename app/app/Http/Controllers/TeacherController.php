@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Course;
 use App\Teacher;
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 

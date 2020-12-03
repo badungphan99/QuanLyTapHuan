@@ -87,6 +87,8 @@
                                                 <label for=""><b>Ngày khai giảng: </b></label>
                                                 <p class="font-weight-light">{{ $course->date }}</p>
                                                 <label for=""><a href="/course/teacher/{{ $course->id }}">Giảng viên phụ trách</a></label>
+                                                <br>
+                                                <label for=""><a href="/course/student/{{ $course->id }}">Sinh viên đã đăng ký</a></label>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

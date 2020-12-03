@@ -139,7 +139,9 @@ class CourseController extends Controller
             array_push($users, $user[0]);
             $i = $i + 17;
         }
-        return view('teachers.index')->with('class_id', $id)->with('users', $users);
+        $teachers = DB::table('users')->where('role', '=', 3)->get();
+        //dd($teachers);
+        return view('teachers.index')->with('class_id', $id)->with('users', $users)->with('teachers', $teachers);
     }
 
     public function store_teacher(Request $request, $id)
