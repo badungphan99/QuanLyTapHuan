@@ -10,37 +10,36 @@
     </div>
     <div class="col-lg-2 col-md-2" id="mainLeft">
         <div class="filter-report">
-            <div class="boxLeft ">
-                <h1 class="leftTitle">Vai trò</h1>
-                <div class="styleBox">
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<span>Quản trị hệ thống</span>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<szpan>Quản lí</span>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<span>Giáo viên</span>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<span>Học viên</span>
-                    </div>
-                </div>
-            </div>
-            <div class="boxLeftC ">
-                <h2 class="leftTitle">Trạng thái</h2>
-                <div class="styleBox">
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<span>Tất cả</span>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<span>Kích hoạt</span>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="styleFont">&nbsp;<span>Vô hiệu hóa</span>
+            <form action="#" method="#">
+                <div class="boxLeft ">
+                    <h1 class="leftTitle">Vai trò</h1>
+                    <div class="styleBox">
+                        <div>
+                            <input type="checkbox" class="styleFont">&nbsp;<span>Quản trị hệ thống</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="styleFont">&nbsp;<szpan>Quản lí</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="styleFont">&nbsp;<span>Giáo viên</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="styleFont">&nbsp;<span>Học viên</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="boxLeftC ">
+                    <h2 class="leftTitle">Trạng thái</h2>
+                    <div class="styleBox">
+                        <div>
+                            <input type="checkbox" class="styleFont">&nbsp;<span>Kích hoạt</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="styleFont">&nbsp;<span>Vô hiệu hóa</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div class="row justify-content-center">
             <button class = "btn btn-lg btn-outline-dark  btn-filter"><span><i class="fas fa-search" style="color:black;"></i></span>&nbsp Tìm kiếm</button>
             </div>
