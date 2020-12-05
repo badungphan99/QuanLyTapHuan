@@ -6,7 +6,7 @@
             <div class="head-content">
                 <h1 class="display-4">Các khóa tập huấn</h1><br>
                 <a href="/course/create" class="btn btn-lg btn-outline-dark pull-right" id="create_course"><span><i class="fa fa-plus" aria-hidden="true"></i></span> &nbsp Thêm mới</a><br><br>
-
+            
             </div>
             @if (session('status'))
                 <div class="alert alert-success">
@@ -48,8 +48,8 @@
                                 </td>
                                 <td>
                                     <a href="/course/edit/{{ $course->id }}" class="btn btn-lg btn-outline-dark"><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>&nbsp Chỉnh sửa</a>
-                                    <button type="button" class="btn btn-lg btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
-                                       Chi tiết
+                                    <button type="button" class="btn btn-lg btn-outline-dark" data-toggle="modal" data-target="#exam{{$course->id}}">
+                                        Chi tiết
                                     </button>
 
                                     <div class="modal fade" id="exam{{$course->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

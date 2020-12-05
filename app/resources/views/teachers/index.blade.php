@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Courses Manager</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- Styles -->
-        <style>
-            
-        </style>
-    </head>
-    <body>
+@extends('layouts.app')
+<title>Danh sách giảng viên @yield('title')</title>
+    <link rel="stylesheet" href="{{ asset('css/program-index.css') }}">
+@section('content')
         <div class="container">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
                     <h1>Danh sách giảng viên</h1>
                 </div>
                 <div class="col-sm-3"></div>
+            </div> -->
+            <div class="head-content">
+                <h1 class="display-4">Danh sách giảng viên</h1>
+                <!-- <a href="/teacher/create" id="create_teacher" class="btn btn-lg btn-outline-dark pull-right"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Thêm mới</a> -->
+                <form action="/teacher/store/{{$class_id}}" method="post">
+                    @csrf
+                    <span class="badge badge-secondary">Giảng viên:</span>
+                    <div class="#">
+                        <select class="form-control" name="teacher_id">
+                            @foreach ($teachers as $teacher)
+                                <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
+                            @endforeach 
+                        </select><br>
+                        <div class="btn-add">
+                            <button type="submit" class="btn btn-lg btn-outline-dark"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbspThêm mới</button>
+                        </div>                   
+                    </div>
+                </form>
             </div>
-            
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>
@@ -40,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($users->count() == 0)
+                        @if (count($users) == 0)
                             <tr>
                                 <td colspan="11">
                                     <h5 class="text-warning text-center">Không tìm thấy giảng viên nào</h5>
@@ -53,13 +54,28 @@
                                 <td><label for="">{{ $user->fullname }}</label></td>
                                 <td><p class="font-weight-light">{{ $user->email }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
-                                <td><p class="font-weight-light">{{ $user->status }}</p></td>
+                                <td>                                
+                                    @if ($user->status == 1)
+                                        <p class="font-weight-dark">Active</p>
+                                    @else
+                                        <p class="font-weight-light">Inactive</p>
+                                    @endif
+                                </td>
+                                <td><a href="/teacher/delete/{{$user->id}}" class="btn btn-lg btn-outline-danger" id="create_course"><span><i class="fa fa-trash-o" aria-hidden="true"></i></span>&nbsp Xóa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+            <!-- <form action="/teacher/store/{{$class_id}}" method="post">
+                @csrf
+                <span class="badge badge-success">Giảng viên:</span>
+                <select class="form-control" name="teacher_id">
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
+                    @endforeach 
+                </select>
+                <button type="submit" class="btn btn-dark">Thêm mới</button>
+            </form> -->
             </div>
-            <a href="/teacher/create" class="btn btn-primary" id="create_teacher">Thêm mới</a>
         </div>
-    </body>
-</html>
+@endsection
