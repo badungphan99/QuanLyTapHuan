@@ -3,16 +3,41 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use function Sodium\add;
 
 class SuperAdminController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $list_users = User::all();
-        return view('superAdmin/superAdmin')->with('listUser', json_decode($list_users, true));
+        $roles = [];
+        if (isset($request->role_1)) array_push($roles, 1);
+        if (isset($request->role_2)) array_push($roles, 2);
+        if (isset($request->role_3)) array_push($roles, 3);
+        if (isset($request->role_4)) array_push($roles, 4);
+        if (empty($roles)) $roles = [1, 2, 3, 4];
+
+        $status = [];
+        if (isset($request->enable)) array_push($status, 1);
+        if (isset($request->disable)) array_push($status, 0);
+        if (empty($status)) $status = [0, 1];
+
+        $isChecked = [];
+        $isChecked['role_1'] = in_array(1, $roles);
+        $isChecked['role_2'] = in_array(2, $roles);
+        $isChecked['role_3'] = in_array(3, $roles);
+        $isChecked['role_4'] = in_array(4, $roles);
+        $isChecked['enable'] = in_array(1, $status);
+        $isChecked['disable'] = in_array(0, $status);
+
+        $list_users = User::query()
+                    ->whereIn('role', $roles)
+                    ->whereIn('status', $status)
+                    ->get();
+        return view('superAdmin/superAdmin')->with('listUser', json_decode($list_users, true))->with('is_checked', $isChecked);
 
     }
     public function detail_infor_user()

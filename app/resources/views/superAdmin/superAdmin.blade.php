@@ -10,21 +10,21 @@
     </div>
     <div class="col-lg-2 col-md-2" id="mainLeft">
         <div class="filter-report">
-            <form action="#" method="#">
+            <form action="/superAdmin" method="get">
                 <div class="boxLeft ">
                     <h1 class="leftTitle">Vai trò</h1>
                     <div class="styleBox">
                         <div>
-                            <input type="checkbox" class="styleFont">&nbsp;<span>Quản trị hệ thống</span>
+                            <input type="checkbox" class="styleFont" name="role_1" @if ($is_checked['role_1']) checked @endif>&nbsp;<span>Quản trị hệ thống</span>
                         </div>
                         <div>
-                            <input type="checkbox" class="styleFont">&nbsp;<szpan>Quản lí</span>
+                            <input type="checkbox" class="styleFont" name="role_2" @if ($is_checked['role_2']) checked @endif>&nbsp;<span>Quản lí</span>
                         </div>
                         <div>
-                            <input type="checkbox" class="styleFont">&nbsp;<span>Giáo viên</span>
+                            <input type="checkbox" class="styleFont" name="role_3" @if ($is_checked['role_3']) checked @endif>&nbsp;<span>Giáo viên</span>
                         </div>
                         <div>
-                            <input type="checkbox" class="styleFont">&nbsp;<span>Học viên</span>
+                            <input type="checkbox" class="styleFont"name="role_4" @if ($is_checked['role_4']) checked @endif>&nbsp;<span>Học viên</span>
                         </div>
                     </div>
                 </div>
@@ -32,17 +32,18 @@
                     <h2 class="leftTitle">Trạng thái</h2>
                     <div class="styleBox">
                         <div>
-                            <input type="checkbox" class="styleFont">&nbsp;<span>Kích hoạt</span>
+                            <input type="checkbox" class="styleFont" name="enable" @if ($is_checked['enable']) checked @endif>&nbsp;<span>Kích hoạt</span>
                         </div>
                         <div>
-                            <input type="checkbox" class="styleFont">&nbsp;<span>Vô hiệu hóa</span>
+                            <input type="checkbox" class="styleFont" name="disable" @if ($is_checked['disable']) checked @endif>&nbsp;<span>Vô hiệu hóa</span>
                         </div>
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <input type="submit" value="Tìm kiếm">
+                </div>
             </form>
-            <div class="row justify-content-center">
-            <button class = "btn btn-lg btn-outline-dark  btn-filter"><span><i class="fas fa-search" style="color:black;"></i></span>&nbsp Tìm kiếm</button>
-            </div>
+
         </div>
 
     </div>
@@ -55,7 +56,7 @@
             </div>
             <div class="col-lg-3 col-md-3 add-user d-flex justify-content-end">
                     <button class="btn dropbtn btn-lg btn-outline-dark"  data-toggle="modal" data-target="#modalAdd"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Thêm người dùng</button>
-            </div>        
+            </div>
         </div>
         <div class="menuRight">
             <div id="modalAdd" class="modal fade" role="dialog">
@@ -164,7 +165,7 @@
                                     <td>@if ($user['role'] == 1) Quản trị hệ thống
                                         @elseif ($user['role'] == 2) Quản lý
                                         @elseif ($user['role'] == 3) Giáo viên
-                                        @elseif ($user['role'] == 3) Học viên
+                                        @elseif ($user['role'] == 4) Học viên
                                         @endif</td>
                                     <td>{{ $user['unit'] }}</td>
                                     <td>{{ $user['email'] }}</td>
@@ -173,7 +174,7 @@
                                     <td>
                                         <a href="" style="color:black;margin-left:5px; font-size:20px" data-toggle="modal" data-target="#modalEdit{{$user['id']}}"><i class="fas fa-edit"></i></a>
                                         <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fa fa-trash-o "></i></a>
-                                        <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fas fa-user"></i></a>
+{{--                                        <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fas fa-user"></i></a>--}}
                                     </td>
                                     <div id="modalEdit{{$user['id']}}" class="modal fade" role="dialog">
                                         <div class="modal-dialog" style="width:500px; height:800px">
