@@ -70,6 +70,7 @@
                     @endforeach 
                 </select>
                 <button type="submit" class="btn btn-dark">Thêm mới</button>
+                <a href="/course" class="btn btn-danger" id="create_course">Khóa học</a>
             </form>
             </div>
         </div>
