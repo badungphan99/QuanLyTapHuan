@@ -1,32 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Courses Manager</title>
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <style>
-            
-        </style>
-    </head>
-    <body>
+@extends('layouts.app')
+<title>Danh sách giảng viên @yield('title')</title>
+    <link rel="stylesheet" href="{{ asset('css/program-index.css') }}">
+@section('content')
         <div class="container">
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <h1>Danh sách sinh viên đã đăng ký</h1>
+            <!-- <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h1>Danh sách giảng viên</h1>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-3"></div>
+            </div> -->
+            <div class="head-content">
+                <h1 class="display-4">Danh sách sinh viên</h1>
+                <!-- <a href="/teacher/create" id="create_teacher" class="btn btn-lg btn-outline-dark pull-right"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Thêm mới</a> -->
+                <form action="/student/store/{{$class_id}}" method="post">
+                    @csrf
+                    <span class="badge badge-secondary">Sinh viên:</span>
+                    <div class="#">
+                        <select class="form-control" name="student_id">
+                            @foreach ($students as $student)
+                                <option value="{{ $student->id }}">{{ $student->fullname }}</option>
+                            @endforeach 
+                        </select><br>
+                        <div class="btn-add">
+                            <button type="submit" class="btn btn-lg btn-outline-dark"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbspThêm mới</button>
+                        </div>                   
+                    </div>
+                </form>
             </div>
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
+            <a href="/course" class="btn btn-outline-dark" id="create_course"><span><i class="fas fa-bars" aria-hidden="true"></i></span>&nbsp Khóa học</a>
+            <a href="/program" class="btn btn-outline-dark" id="create_course"><span><i class="fas fa-bars" aria-hidden="true"></i></span>&nbsp Chương trình học</a>
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>
@@ -53,29 +56,19 @@
                                 <td><label for="">{{ $user->fullname }}</label></td>
                                 <td><p class="font-weight-light">{{ $user->email }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
-                                <td>  
-                                @if ($user->status == 1)
-                                    <p class="font-weight-dark">Active</p>
-                                @else
-                                    <p class="font-weight-light">Inactive</p>
-                                @endif
+                                <td>                                
+                                    @if ($user->status == 1)
+                                        <p class="font-weight-dark">Active</p>
+                                    @else
+                                        <p class="font-weight-light">Inactive</p>
+                                    @endif
                                 </td>
-                                <td><a href="/student/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
+                                <td><a href="/student/delete/{{$user->id}}" class="btn btn-lg btn-outline-danger" id="create_course"><span><i class="fa fa-trash-o" aria-hidden="true"></i></span>&nbsp Xóa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-            <form action="/student/store/{{$class_id}}" method="post">
-                @csrf
-                <span class="badge badge-success">Sinh viên:</span>
-                <select class="form-control" name="student_id">
-                    @foreach ($students as $student)
-                        <option value="{{ $student->id }}">{{ $student->fullname }}</option>
-                    @endforeach 
-                </select>
-                <button type="submit" class="btn btn-dark">Thêm mới</button>
-            </form>
+                
             </div>
         </div>
-    </body>
-</html>
+@endsection
