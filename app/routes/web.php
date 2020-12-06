@@ -53,11 +53,16 @@ Route::post('user/update','Users\UserController@update')->middleware('auth')->na
 Route::get('/course', 'CourseController@index')->name('index_course');
 Route::get('/course/create', 'CourseController@create')->name('create_course_form');
 Route::post('/course/store', 'CourseController@store')->name('store_course');
-
 Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');
 Route::post('/course/edit/{id}', 'CourseController@update')->name('edit_course');
 
 Route::get('/course/teacher/{id}', 'CourseController@view_teacher')->name('view_teacher');
+Route::post('/teacher/store/{id}', 'CourseController@store_teacher')->name('store_teacher');
+Route::get('/teacher/delete/{id}', 'CourseController@delete_teacher')->name('delete_teacher');
+
+Route::get('/course/student/{id}', 'CourseController@view_student')->name('view_student');
+Route::post('/student/store/{id}', 'CourseController@store_student')->name('store_student');
+Route::get('/student/delete/{id}', 'CourseController@delete_student')->name('delete_student');
 
 Route::get('/program', 'ProgramController@index')->name('index_program');
 Route::get('/program/create', 'ProgramController@create')->name('create_program_form');

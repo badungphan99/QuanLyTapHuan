@@ -18,11 +18,15 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
-                    <h1>Danh sách giảng viên của khóa</h1>
+                    <h1>Danh sách sinh viên đã đăng ký</h1>
                 </div>
                 <div class="col-sm-2"></div>
             </div>
-            
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>
@@ -36,10 +40,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($users->count() == 0)
+                        @if (count($users) == 0)
                             <tr>
                                 <td colspan="11">
-                                    <h5 class="text-warning text-center">Không tìm thấy giảng viên nào</h5>
+                                    <h5 class="text-warning text-center">Không tìm thấy sinh viên nào</h5>
                                 </td>
                             </tr>
                         @endif
@@ -56,21 +60,20 @@
                                     <p class="font-weight-light">Inactive</p>
                                 @endif
                                 </td>
-                                <td><a href="/teacher/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
+                                <td><a href="/student/delete/{{$user->id}}" class="btn btn-danger" id="create_course">Xóa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-            <form action="/teacher/store/{{$class_id}}" method="post">
+            <form action="/student/store/{{$class_id}}" method="post">
                 @csrf
-                <span class="badge badge-success">Giảng viên:</span>
-                <select class="form-control" name="teacher_id">
-                    @foreach ($teachers as $teacher)
-                        <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
+                <span class="badge badge-success">Sinh viên:</span>
+                <select class="form-control" name="student_id">
+                    @foreach ($students as $student)
+                        <option value="{{ $student->id }}">{{ $student->fullname }}</option>
                     @endforeach 
                 </select>
                 <button type="submit" class="btn btn-dark">Thêm mới</button>
-                <a href="/course" class="btn btn-primary" id="create_course">Khóa học</a>
             </form>
             </div>
         </div>
