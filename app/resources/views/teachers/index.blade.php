@@ -10,7 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <style>
-            
+
         </style>
     </head>
     <body>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-sm-2"></div>
             </div>
-            
+
             <div class="table-responsive">
                 <table class="table table-hover ">
                     <thead>
@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($users->count() == 0)
+                        @if (count($users) == 0)
                             <tr>
                                 <td colspan="11">
                                     <h5 class="text-warning text-center">Không tìm thấy giảng viên nào</h5>
@@ -49,7 +49,7 @@
                                 <td><label for="">{{ $user->fullname }}</label></td>
                                 <td><p class="font-weight-light">{{ $user->email }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
-                                <td>  
+                                <td>
                                 @if ($user->status == 1)
                                     <p class="font-weight-dark">Active</p>
                                 @else
@@ -67,7 +67,7 @@
                 <select class="form-control" name="teacher_id">
                     @foreach ($teachers as $teacher)
                         <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
-                    @endforeach 
+                    @endforeach
                 </select>
                 <button type="submit" class="btn btn-dark">Thêm mới</button>
                 <a href="/course" class="btn btn-primary" id="create_course">Khóa học</a>
