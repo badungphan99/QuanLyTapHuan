@@ -38,21 +38,20 @@
                     <th>Trạng thái</th>
                 </tr>
             </thead>
-            <tbody>
-            @foreach ($courses as $key => $course)
+            <tbody align="center">
+             @foreach ($courses as $key => $course)
                 <tr>
-                    <td><label for="">{{ $course->name }}</label></td>
-                    <td><p class="font-weight-light">{{ $course->location }}</p></td>
+                    <td>{{$course->name}}</td>
+                    <td>{{$course->location}}</td>
                     <td>
                                     @if ($course->status == 1)
-                                        <p class="font-weight-dark">Active</p>
+                                        <p>Active</p>
                                     @else
-                                        <p class="font-weight-light">Inactive</p>
+                                        <p>Inactive</p>
                                     @endif
                     </td>
                 </tr>
-             @endforeach
-
+            @endforeach
             </tbody>
         </table>
     </div>
