@@ -6,7 +6,7 @@
             <div class="head-content">
                 <h1 class="display-4">Các khóa tập huấn</h1><br>
                 <a href="/course/create" class="btn btn-lg btn-outline-dark pull-right" id="create_course"><span><i class="fa fa-plus" aria-hidden="true"></i></span> &nbsp Thêm mới</a><br><br>
-            
+                <a href="/program" class="btn btn-outline-dark" id="create_course"><span><i class="fas fa-bars" aria-hidden="true"></i></span>&nbsp Chương trình học</a>
             </div>
             @if (session('status'))
                 <div class="alert alert-success">
