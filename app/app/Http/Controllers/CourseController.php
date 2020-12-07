@@ -222,4 +222,9 @@ class CourseController extends Controller
         DB::delete('delete from enroll where student_id = ?',[$id]);
         return redirect('course')->with('status', 'Đã xóa sinh viên!');
     }
+    public function view_welcome_course()
+    {
+        $courses = DB::table('course')->get();
+        return view('welcome', compact('courses'));
+    }
 }
