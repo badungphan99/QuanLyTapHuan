@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,13 +19,17 @@
         </style>
     </head>
     <body>
+=======
+@extends('layouts.app')
+<title>Chương trình @yield('title')</title>
+    <link rel="stylesheet" href="{{ asset('css/program-index.css') }}">
+@section('content')
+>>>>>>> pnhieu
         <div class="container">
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <h1>Các khóa tập huấn</h1>
-                </div>
-                <div class="col-sm-4"></div>
+            <div class="head-content">
+                <h1 class="display-4">Các khóa tập huấn</h1><br>
+                <a href="/course/create" class="btn btn-lg btn-outline-dark pull-right" id="create_course"><span><i class="fa fa-plus" aria-hidden="true"></i></span> &nbsp Thêm mới</a><br><br>
+                <a href="/program" class="btn btn-outline-dark" id="create_course"><span><i class="fas fa-bars" aria-hidden="true"></i></span>&nbsp Chương trình học</a>
             </div>
             @if (session('status'))
                 <div class="alert alert-success">
@@ -65,8 +70,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="/course/edit/{{ $course->id }}" class="btn btn-outline-warning">Chỉnh sửa</a>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exam{{$course->id}}">
+                                    <a href="/course/edit/{{ $course->id }}" class="btn btn-lg btn-outline-dark"><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>&nbsp Chỉnh sửa</a>
+                                    <button type="button" class="btn btn-lg btn-outline-dark" data-toggle="modal" data-target="#exam{{$course->id}}">
                                         Chi tiết
                                     </button>
 
@@ -102,7 +107,5 @@
                     </tbody>
                 </table>
             </div>
-            <a href="/course/create" class="btn btn-primary" id="create_course">Thêm mới</a>
         </div>
-    </body>
-</html>
+@endsection

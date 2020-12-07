@@ -52,9 +52,12 @@
         color: black;
         text-decoration:none !important;
         }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> pnhieu
         /* .modal-content .close{
             transform: translateX(-50%);
             position: relative;
@@ -68,14 +71,17 @@
             top:0px;
             margin-top: 2px;
         } */
+<<<<<<< HEAD
 
+=======
+>>>>>>> pnhieu
     </style>
 
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-light navbar-fixed-top">
             <a href="{{url ('/') }}"><div class="logo">
-                <img src="../img/logo.png" alt="Venue Logo">
+                <img src="{{ asset('img/logo.png') }}"  alt="Venue Logo">
             </div></a>
             <button class="navbar-toggler btn-lg " type="link" data-toggle="collapse" data-target="#headnav"><span><i class="fa fa-bars"></i></span></button>
             <div class="collapse navbar-collapse justify-content-end" id="headnav">
