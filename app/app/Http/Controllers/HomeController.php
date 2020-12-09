@@ -26,8 +26,19 @@ class HomeController extends Controller
     public function index()
     {
         $userId = Auth::id();
+        //dd($userId);
         $courses = DB::table('course')->get();
-        //dd($courses);
-        return view('home')->with('courses', $courses);
+        $courses_id = DB::table('enroll')
+                    ->select('class_id')
+                    ->where('enroll.student_id', '=', $userId)
+                    ->distinct('class_id')
+                    ->get();
+        //dd($courses_id);
+        $course_users = array();
+        foreach($courses_id as $id){
+            array_push($course_users, DB::table('course')->where('id', $id->class_id)->first());
+        }
+        //dd($course_users);
+        return view('home')->with('courses', $courses)->with('course_users', $course_users);
     }
 }
