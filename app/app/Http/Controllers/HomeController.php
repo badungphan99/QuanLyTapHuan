@@ -27,6 +27,11 @@ class HomeController extends Controller
     public function index()
     {
         $userId = Auth::id();
+        $role = DB::table('users')
+                    ->select('role')
+                    ->where('id', '=', $userId)
+                    ->get();
+        //dd($role[0]->role);
         $courses = DB::table('course')->get();
         $courses_id = DB::table('enroll')
                     ->select('class_id')
@@ -37,7 +42,7 @@ class HomeController extends Controller
         foreach($courses_id as $id){
             array_push($course_users, DB::table('course')->where('id', $id->class_id)->first());
         }
-        return view('home')->with('courses', $courses)->with('course_users', $course_users);
+        return view('home')->with('courses', $courses)->with('course_users', $course_users)->with('role', $role[0]->role);
     }
 
     public function register_course(Request $request, $id)

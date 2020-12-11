@@ -23,6 +23,14 @@
                         </div>
                     @endif               
                 </div>
+                <div class="card-body">
+                    @if ( $role == 1 )
+                        <a href="/program">Quản lý chương trình và khóa học</a><br>
+                        <a href="/superAdmin">Quản lý nhân sự</a> 
+                    @elseif ( $role == 2 )
+                        <a href="/superAdmin">Quản lý nhân sự</a>   
+                    @endif
+                </div>
             </div>
         </div>
     </div>
