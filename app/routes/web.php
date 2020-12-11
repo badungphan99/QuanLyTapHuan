@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/', 'WelcomeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/register/{id}', 'HomeController@register_course')->name('register_course');
 
 Route::get('/list-all-user', 'UserController@listAllUser');
 
