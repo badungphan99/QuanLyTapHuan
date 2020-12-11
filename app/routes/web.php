@@ -18,9 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/list-all-user', 'UserController@listAllUser');
 
 Route::get('/user/{username}', 'UserController@getUserByUserName');
@@ -71,7 +68,8 @@ Route::get('/program/edit/{id}', 'ProgramController@show')->name('show_program')
 Route::post('/program/edit/{id}', 'ProgramController@update')->name('edit_program');
 Route::get('/program/courses/{id}', 'ProgramController@view_course')->name('view_course');
 Route::get('/', 'WelcomeController@index')->name('welcome');
-
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/register/{id}', 'HomeController@register_course')->name('register_course');
 // Route::get('/course', 'SuperAdminController@detail_infor_user')->name('index_course');
 
 // Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');

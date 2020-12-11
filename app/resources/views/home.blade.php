@@ -16,6 +16,13 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <div class="card-register">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                             <p>{{ session('success') }}</p>
+                        </div>
+                    @endif               
+                </div>
             </div>
         </div>
     </div>
@@ -84,7 +91,7 @@
                                 @endif
                             </li>
                         </ul>
-                        <a href="#" class="btn btn-secondary" role="button">Đăng ký</a>
+                        <a href="/home/register/{{$course->id}}" class="btn btn-secondary" role="button">Đăng ký</a>
                     </div>
                 </div>
             @endforeach
