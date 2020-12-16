@@ -11,20 +11,20 @@
                 <div class="col-sm-3"></div>
             </div> -->
             <div class="head-content">
-                <h1 class="display-4">Danh sách giảng viên</h1>
+                <h1 class="display-4">Danh sách sinh viên</h1>
                 <!-- <a href="/teacher/create" id="create_teacher" class="btn btn-lg btn-outline-dark pull-right"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Thêm mới</a> -->
-                <form action="/teacher/store/{{$class_id}}" method="post">
+                <form action="/student/store/{{$class_id}}" method="post">
                     @csrf
-                    <span class="badge badge-secondary">Giảng viên:</span>
+                    <span class="badge badge-secondary">Sinh viên:</span>
                     <div class="#">
-                        <select class="form-control" name="teacher_id">
-                            @foreach ($teachers as $teacher)
-                                <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
-                            @endforeach
+                        <select class="form-control" name="student_id">
+                            @foreach ($students as $student)
+                                <option value="{{ $student->id }}">{{ $student->fullname }}</option>
+                            @endforeach 
                         </select><br>
                         <div class="btn-add">
                             <button type="submit" class="btn btn-lg btn-outline-dark"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbspThêm mới</button>
-                        </div>
+                        </div>                   
                     </div>
                 </form>
             </div>
@@ -46,7 +46,7 @@
                         @if (count($users) == 0)
                             <tr>
                                 <td colspan="11">
-                                    <h5 class="text-warning text-center">Không tìm thấy giảng viên nào</h5>
+                                    <h5 class="text-warning text-center">Không tìm thấy sinh viên nào</h5>
                                 </td>
                             </tr>
                         @endif
@@ -56,35 +56,19 @@
                                 <td><label for="">{{ $user->fullname }}</label></td>
                                 <td><p class="font-weight-light">{{ $user->email }}</p></td>
                                 <td><p class="font-weight-light">{{ $user->phone_number }}</p></td>
-                                <td>
+                                <td>                                
                                     @if ($user->status == 1)
                                         <p class="font-weight-dark">Active</p>
                                     @else
                                         <p class="font-weight-light">Inactive</p>
                                     @endif
                                 </td>
-                                <td><a href="/teacher/delete/{{$user->id}}" class="btn btn-lg btn-outline-danger" id="create_course"><span><i class="fa fa-trash-o" aria-hidden="true"></i></span>&nbsp Xóa</a></td>
+                                <td><a href="/student/delete/{{$user->id}}" class="btn btn-lg btn-outline-danger" id="create_course"><span><i class="fa fa-trash-o" aria-hidden="true"></i></span>&nbsp Xóa</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-<<<<<<< HEAD
-            <!-- <form action="/teacher/store/{{$class_id}}" method="post">
-                @csrf
-                <span class="badge badge-success">Giảng viên:</span>
-                <select class="form-control" name="teacher_id">
-                    @foreach ($teachers as $teacher)
-                        <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
-                    @endforeach 
-                </select>
-                <button type="submit" class="btn btn-dark">Thêm mới</button>
-            </form> -->
+                
             </div>
         </div>
 @endsection
-=======
-
-            </div>
-        </div>
-@endsection
->>>>>>> a6dbd1e5f59de9bbe6811f4d180dccb043c341e2

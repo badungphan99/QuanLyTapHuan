@@ -52,9 +52,6 @@
         color: black;
         text-decoration:none !important;
         }
-
-
-
         /* .modal-content .close{
             transform: translateX(-50%);
             position: relative;
@@ -68,7 +65,6 @@
             top:0px;
             margin-top: 2px;
         } */
-
     </style>
 
     </head>
