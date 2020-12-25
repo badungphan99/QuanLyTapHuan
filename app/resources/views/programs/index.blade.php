@@ -2,7 +2,42 @@
 <title>Chương trình @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/program-index.css') }}">
 @section('content')
-        <div class="container">
+
+        <div class="content">
+        <div class="dashboard_left">
+        <div class="left_item">
+
+      <div id="sidebar" class="nav-collapse ">
+        <ul class="sidebar-menu">
+          <li class="active">
+            <a class="" href="{{ url('/home') }}">
+                          <i class="fas fa-home"></i>
+                          <span>Trang chủ</span>
+                      </a>
+          </li>
+          <li class="sub-menu">
+            <a  href="/program">
+                          <i class="fas fa-book-reader"></i>
+                          <span>Quản lí chương trình và khóa học</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a  href="/superAdmin">
+                          <i class="fas fa-user"></i>
+                          <span>Quản lí nhân sự</span>
+                      </a>
+          </li>
+          
+          
+        </ul>
+      </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="dashboard_right">
             <div class="head-content">
                 <h1 class="display-4">Các chương trình tập huấn</h1>
                 <a href="/program/create" class="btn btn-lg btn-outline-dark pull-right" id="create_course"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Thêm mới</a><br><br>
@@ -42,5 +77,6 @@
                     </tbody>
                 </table>
             </div><br><br>
+        </div>
         </div>
 @endsection

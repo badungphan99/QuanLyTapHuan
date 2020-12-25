@@ -30,55 +30,37 @@
                 </div>
             </div> 
         </div> 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="table-item">
-                    <div class="top-content">
-                        <img src="img/course.jpg">
+            <div class="row">
+            @if (count($courses) == 0)
+                    <tr>
+                        <td colspan="11">
+                            <h2 class="text-warning text-center">Không tìm thấy khóa học nào</h2>
+                        </td>
+                    </tr>
+            @endif
+            <div class="row">
+                @foreach ($courses as $key => $course)
+                    <div class="col-md-4">
+                        <div class="table-item">
+                            <div class="top-content">
+                                <img src="img/course.jpg">
+                            </div>
+                            <ul>
+                                <li><a href="">{{$course->name}}</a></li>
+                                <li><a href="">{{$course->location}}</a></li>
+                                <li>
+                                    @if($course->status == 1)
+                                        <a href="">Active</a>
+                                    @else
+                                    <a href="">Inactive</a>
+                                    @endif
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-secondary" role="button">Đăng ký</a>
+                        </div>
                     </div>
-                    <ul>
-                        <li><a href="#">100 Suspendisse dapibus</a></li>
-                        <li><a href="#">10x Paleo celiac enamel</a></li>
-                        <li><a href="#">Williamsburg organic post ironic</a></li>
-                        <li><a href="#">Helvetica pinterest yuccie</a></li>
-                        <li><a href="#">Plaid shabby chic godard</a></li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary" role="button">Chi tiết</a>
-                </div>
+                @endforeach
             </div>
-            <div class="col-md-4">
-                <div class="table-item">
-                    <div class="top-content">
-                        <img src="img/course.jpg">
-                    </div>
-                    <ul>
-                        <li><a href="#">200 Suspendisse dapibus</a></li>
-                        <li><a href="#">20x Paleo celiac enamel</a></li>
-                        <li><a href="#">Williamsburg organic post ironic</a></li>
-                        <li><a href="#">Helvetica pinterest yuccie</a></li>
-                        <li><a href="#">Plaid shabby chic godard</a></li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary" role="button">Chi tiết</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="table-item">
-                    <div class="top-content">
-                        <img src="img/course.jpg">
-                    </div>
-                    <ul>
-                        <li><a href="#">400 Suspendisse dapibus</a></li>
-                        <li><a href="#">40x Paleo celiac enamel</a></li>
-                        <li><a href="#">Williamsburg organic post ironic</a></li>
-                        <li><a href="#">Helvetica pinterest yuccie</a></li>
-                        <li><a href="#">Plaid shabby chic godard</a></li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary" role="button">Chi tiết</a>
-                </div>
-            </div>
-        </div>
-        <div class="next d-flex justify-content-end">
-            <a href="#">Xem tất cả <marquee style="line-height: normal;" width="12%" direction="right">>>></marquee></a>
         </div>
     </div>
 </section>
