@@ -1,48 +1,47 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+@section('content')
 <div class="content">
     <div class="dashboard_left">
         <div class="left_item">
-
-      <div id="sidebar" class="nav-collapse ">
-        <ul class="sidebar-menu">
-          <li class="active">
-            <a class="" href="{{ url('/home') }}">
-                          <i class="fas fa-home"></i>
-                          <span>Trang chủ</span>
-                      </a>
-          </li>
-          @if ( $role == 1 )
-          <li class="sub-menu">
-            <a  href="/program">
-                          <i class="fas fa-book-reader"></i>
-                          <span>Quản lí chương trình và khóa học</span>
-            </a>
-          </li>
-          <li class="sub-menu">
-            <a  href="/superAdmin">
-                          <i class="fas fa-user"></i>
-                          <span>Quản lí nhân sự</span>
-                      </a>
-          </li>
-          
-          @elseif ( $role == 2 )
-          <li class="sub-menu">
-            <a href="/superAdmin" class="">
-                          <i class="fas fa-user"></i>
-                          <span>Quản lí nhân sự</span>
-                      </a>
-          </li>
-          @endif
-        </ul>
-      </div>
-
-
+            <div id="sidebar" class="nav-collapse ">
+                <ul class="sidebar-menu">
+                <li class="active">
+                    <a class="" href="{{ url('/home') }}">
+                        <i class="fas fa-home"></i>
+                        <span>Trang chủ</span>
+                    </a>
+                </li>
+                @if ( $role == 1 )
+                <li class="sub-menu">
+                    <a  href="/program">
+                        <i class="fas fa-book-reader"></i>
+                        <span>Quản lí chương trình và khóa học</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a  href="/superAdmin">
+                        <i class="fas fa-user"></i>
+                        <span>Quản lí nhân sự</span>
+                    </a>
+                </li>
+                
+                @elseif ( $role == 2 )
+                <li class="sub-menu">
+                    <a href="/superAdmin" class="">
+                        <i class="fas fa-user"></i>
+                        <span>Quản lí nhân sự</span>
+                    </a>
+                </li>
+                @endif
+                </ul>
+            </div>
         </div>
     </div>
 
 
     <div class="dashboard_right">
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-start">
             
             <div class="col-md-6">
                 <div class="card">
@@ -65,6 +64,13 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="alert alert-success login-alert" role="alert">
+            @if (session('status'))
+            <div class="alert alert-secondary" role="alert ">
+                {{ session('status') }}
+            </div>
+            @endif {{ __('You are logged in!') }}
         </div>
 
 
@@ -77,23 +83,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="row ">
+                <div class="row" style="margin-left:0px;">
                     @foreach ($course_users as $key => $course)
-                    <div class="col-md-4 ">
+                    <div class="col-lg-4 col-md-4">
                         <div class="table-item ">
-                            <div class="top-content ">
+                            <div class="content-top">
                                 <img src="img/course.jpg ">
                             </div>
-                            <ul>
-                                <li><a href=" ">{{$course->name}}</a></li>
-                                <li><a href=" ">{{$course->location}}</a></li>
-                                <li>
-                                    @if($course->status == 1)
-                                    <a href=" ">Active</a> @else
-                                    <a href=" ">Inactive</a> @endif
-                                </li>
-                            </ul>
-                            <a href="# " class="btn btn-secondary " role="button ">Đăng ký</a>
+                            <div class="content-bot">
+                                <ul class="text-left">
+                                    <li>Khóa học: <br><a href=" ">{{$course->name}}</a></li>
+                                </ul>
+                                <div class="row course-info">
+                                    <div class="col-xl-6 col-md-6 col-12 left-info justify-content-start">
+                                        Địa điểm: <br><a href=" ">{{$course->location}}</a>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
+                                        @if($course->status == 1)
+                                        Trạng thái: <br><a href="#">Active</a> 
+                                        @else
+                                        Trạng thái: <br><a href="#">Inactive</a> 
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @endforeach
@@ -113,23 +126,31 @@
                     </td>
                 </tr>
                 @endif
-                <div class="row ">
+                <div class="row owl-carousel" style="margin-left:0px;">
                     @foreach ($courses as $key => $course)
-                    <div class="col-md-4 ">
-                        <div class="table-item ">
-                            <div class="top-content ">
-                                <img src="img/course.jpg ">
+                    <div class="table-item ">
+                        <div class="content-top">
+                            <img src="img/course.jpg" class="course-img">
+                            <div class="course-reg">
+                                <a href="/home/register/{{$course->id}}" class="btn-reg btn btn-lg btn-secondary" role="button"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Đăng ký</a>
                             </div>
-                            <ul>
-                                <li><a href=" ">{{$course->name}}</a></li>
-                                <li><a href=" ">{{$course->location}}</a></li>
-                                <li>
-                                    @if($course->status == 1)
-                                    <a href=" ">Active</a> @else
-                                    <a href=" ">Inactive</a> @endif
-                                </li>
+                        </div>
+                        <div class="content-bot">
+                            <ul class="text-left">
+                                <li>Khóa học: <br><a href=" ">{{$course->name}}</a></li>
                             </ul>
-                            <a href="/home/register/{{$course->id}}" class="btn btn-secondary" role="button">Đăng ký</a>
+                            <div class="row course-info">
+                                <div class="col-xl-6 col-md-6 col-12 left-info justify-content-start">
+                                    Địa điểm: <br><a href=" ">{{$course->location}}</a>
+                                </div>
+                                <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
+                                    @if($course->status == 1)
+                                    Trạng thái: <br><a href="#">Active</a> 
+                                    @else
+                                    Trạng thái: <br><a href="#">Inactive</a> 
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @endforeach
@@ -137,7 +158,24 @@
             </div>
         </section>
     </div>
-
-
 </div>
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            dotsEach:true,
+            autoplayTimeout: 5000,
+            nav: true,
+            navText : ["<div class='nav-btn prev-slide'><span><i class='fa fa-chevron-left' aria-hidden='true'></i></span></div>","<div class='nav-btn next-slide'><span><i class='fa fa-chevron-right' aria-hidden='true'></i></span></div>"],
+        });
+        // $(".owl-prev").click(function(){
+        //     owl.trigger("prev.owl.carousel");
+        // });
+        // $(".owl-next").click(function(){
+        //     owl.trigger("next.owl.carousel");
+        // });
+    });
+</script>
 @endsection
