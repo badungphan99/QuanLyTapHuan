@@ -37,7 +37,7 @@ Route::get('/password/reset', 'Auth\ForgotPasswordController@showRequestForm')->
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
 
 Route::get('/superAdmin', 'SuperAdminController@index')->name('superAdmin');
-Route::get('/detail_user', 'SuperAdminController@detail_infor_user')->name('detail_user');
+
 
 Route::get('/user/show', 'Users\UserController@show')->middleware('auth')->name('user.showinfo');
 Route::post('user/update','Users\UserController@update')->middleware('auth')->name('user.updateInfo');
@@ -65,6 +65,7 @@ Route::get('/program/courses/{id}', 'ProgramController@view_course')->name('view
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/register/{id}', 'HomeController@register_course')->name('register_course');
+Route::get('/detail_user', 'HomeController@detail_infor_user')->name('detail_user'); 
 // Route::get('/course', 'SuperAdminController@detail_infor_user')->name('index_course');
 
 // Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');

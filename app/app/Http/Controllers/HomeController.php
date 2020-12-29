@@ -63,4 +63,9 @@ class HomeController extends Controller
             return redirect('/home')->with('success', 'Đăng ký không thành công');
         }
     }
+    public function detail_infor_user()
+    {
+        return view('/detail_user');
+
+    }
 }

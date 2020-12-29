@@ -1,39 +1,44 @@
-@extends('layouts.app') 
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
-@section('content')
+@extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('css/home.css') }}"> @section('content')
 <div class="content">
     <div class="dashboard_left">
         <div class="left_item">
             <div id="sidebar" class="nav-collapse ">
                 <ul class="sidebar-menu">
-                <li class="active">
-                    <a class="" href="{{ url('/home') }}">
-                        <i class="fas fa-home"></i>
-                        <span>Trang chủ</span>
-                    </a>
-                </li>
-                @if ( $role == 1 )
-                <li class="sub-menu">
-                    <a  href="/program">
-                        <i class="fas fa-book-reader"></i>
-                        <span>Quản lí chương trình và khóa học</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a  href="/superAdmin">
-                        <i class="fas fa-user"></i>
-                        <span>Quản lí nhân sự</span>
-                    </a>
-                </li>
-                
-                @elseif ( $role == 2 )
-                <li class="sub-menu">
-                    <a href="/superAdmin" class="">
-                        <i class="fas fa-user"></i>
-                        <span>Quản lí nhân sự</span>
-                    </a>
-                </li>
-                @endif
+                    <li class="active">
+                        <a class="" href="{{ url('/home') }}">
+                            <i class="fas fa-home"></i>
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+                    @if ( $role == 1 )
+                    <li class="sub-menu">
+                        <a href="/program">
+                            <i class="fas fa-book-reader"></i>
+                            <span>Quản lí chương trình và khóa học</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/superAdmin">
+                            <i class="fas fa-users"></i>
+                            <span>Quản lí nhân sự</span>
+                        </a>
+                    </li>
+
+                    @elseif ( $role == 2 )
+                    <li class="sub-menu">
+                        <a href="/superAdmin" class="">
+                            <i class="fas fa-users"></i>
+                            <span>Quản lí nhân sự</span>
+                        </a>
+                    </li>
+                    @endif
+                    <li class="sub-menu">
+                        <a href="/superAdmin" class="">
+                            <i class="fas fa-user"></i>
+                            <span>Thông tin cá nhân</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -46,7 +51,6 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
-
                     <div class="card-body ">
                         @if (session('status'))
                         <div class="alert alert-secondary" role="alert ">
@@ -54,7 +58,6 @@
                         </div>
                         @endif {{ __('You are logged in!') }}
                     </div>
-
                     <div class="card-register">
                     @if (session('success'))
                         <div class="alert alert-success">
@@ -99,11 +102,7 @@
                                         Địa điểm: <br><a href=" ">{{$course->location}}</a>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
-                                        @if($course->status == 1)
-                                        Trạng thái: <br><a href="#">Active</a> 
-                                        @else
-                                        Trạng thái: <br><a href="#">Inactive</a> 
-                                        @endif
+                                        @if($course->status == 1) Trạng thái: <br><a href="#">Active</a> @else Trạng thái: <br><a href="#">Inactive</a> @endif
                                     </div>
                                 </div>
                             </div>
@@ -144,11 +143,7 @@
                                     Địa điểm: <br><a href=" ">{{$course->location}}</a>
                                 </div>
                                 <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
-                                    @if($course->status == 1)
-                                    Trạng thái: <br><a href="#">Active</a> 
-                                    @else
-                                    Trạng thái: <br><a href="#">Inactive</a> 
-                                    @endif
+                                    @if($course->status == 1) Trạng thái: <br><a href="#">Active</a> @else Trạng thái: <br><a href="#">Inactive</a> @endif
                                 </div>
                             </div>
                         </div>
@@ -160,15 +155,15 @@
     </div>
 </div>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $(".owl-carousel").owlCarousel({
             loop: true,
             margin: 10,
             autoplay: true,
-            dotsEach:true,
+            dotsEach: true,
             autoplayTimeout: 5000,
             nav: true,
-            navText : ["<div class='nav-btn prev-slide'><span><i class='fa fa-chevron-left' aria-hidden='true'></i></span></div>","<div class='nav-btn next-slide'><span><i class='fa fa-chevron-right' aria-hidden='true'></i></span></div>"],
+            navText: ["<div class='nav-btn prev-slide'><span><i class='fa fa-chevron-left' aria-hidden='true'></i></span></div>", "<div class='nav-btn next-slide'><span><i class='fa fa-chevron-right' aria-hidden='true'></i></span></div>"],
         });
         // $(".owl-prev").click(function(){
         //     owl.trigger("prev.owl.carousel");

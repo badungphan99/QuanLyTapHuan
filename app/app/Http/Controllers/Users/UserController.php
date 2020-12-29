@@ -48,4 +48,5 @@ class UserController
             'academic_degree' => ['string', 'max:255'],
         ]);
     }
+    
 }

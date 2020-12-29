@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('css/super_admin.css') }}"/> -->
 
 

@@ -40,11 +40,7 @@ class SuperAdminController extends Controller
         return view('superAdmin/superAdmin')->with('listUser', json_decode($list_users, true))->with('is_checked', $isChecked);
 
     }
-    public function detail_infor_user()
-    {
-        return view('superAdmin/detail_user');
-
-    }
+    
 
     public function update_info_user(Request $request){
         $user = User::where('username', '=', $request->username)->first();

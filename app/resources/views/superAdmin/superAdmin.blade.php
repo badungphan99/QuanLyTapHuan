@@ -198,9 +198,7 @@
                                                                     <div class="form-group"><label class="form-label control-label">Tên đăng nhập</label>
                                                                     <div class="form-wrap"><input id="" name="username" class="form-control" type="text" maxlength="10" readonly value="{{ $user['username'] }}"></div>
                                                                     </div>
-                                                                    {{-- <div class="form-group"><label class="form-label control-label">Mật khẩu</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10" value="{{ $user['password'] }}"></div>
-                                                                    </div> --}}
+                                                                     
                                                                     <!-- <div class="form-group"><label class="form-label control-label">Xác nhận mật khẩu</label>
                                                                         <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
                                                                     </div> -->
