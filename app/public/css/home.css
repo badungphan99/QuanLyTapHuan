@@ -64,36 +64,6 @@ border-radius: 0 0 4px 4px;
 -webkit-border-radius: 0 0 4px 4px;
 } */
 
-ul.sidebar-menu li ul.sub li a {
-    font-size: 8px;
-    padding: 0 0 0 32px;
-    line-height: 50px;
-    height: 50px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    color: #d0d8df;
-}
-
-ul.sidebar-menu li ul.sub li a:hover,
-ul.sidebar-menu li ul.sub li.active a {
-    color: #fff;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    display: block;
-}
-
-
-/* ul.sidebar-menu li.sub-menu {
-line-height: 15px;
-font-size: 10px;
-} */
-
 ul.sidebar-menu li a span {
     display: inline-block;
 }
@@ -102,7 +72,7 @@ ul.sidebar-menu li a {
     color: black;
     text-decoration: none;
     display: block;
-    padding: 15px 0 15px 10px;
+    padding: 15px 0 15px 15px;
     font-size: 15px;
     font-weight: 300;
     outline: none;

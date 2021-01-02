@@ -34,9 +34,9 @@
                     </li>
                     @endif
                     <li class="sub-menu">
-                        <a href="/superAdmin" class="">
+                        <a href="/student/list" class="">
                             <i class="fas fa-user"></i>
-                            <span>Thông tin cá nhân</span>
+                            <span>Danh sách sinh viên</span>
                         </a>
                     </li>
                 </ul>
@@ -68,17 +68,17 @@
                 </div>
             </div>
         </div> -->
-        <div class="alert alert-success login-alert" role="alert">
-            @if (session('status'))
-            <div class="alert alert-secondary" role="alert ">
-                {{ session('status') }}
-            </div>
-            @endif {{ __('You are logged in!') }}
-        </div>
 
 
         <section class="pricing-tables nd">
             <div class="container">
+                <div class="alert alert-success login-alert" role="alert">
+                    @if (session('status'))
+                    <div class="alert alert-secondary" role="alert ">
+                        {{ session('status') }}
+                    </div>
+                    @endif {{ __('You are logged in!') }}
+                </div>
                 <div class="row ">
                     <div class="col-md-12 ">
                         <div class="section-heading ">

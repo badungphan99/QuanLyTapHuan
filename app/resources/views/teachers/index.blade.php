@@ -68,23 +68,7 @@
                         @endforeach
                     </tbody>
                 </table>
-<<<<<<< HEAD
-            <!-- <form action="/teacher/store/{{$class_id}}" method="post">
-                @csrf
-                <span class="badge badge-success">Giảng viên:</span>
-                <select class="form-control" name="teacher_id">
-                    @foreach ($teachers as $teacher)
-                        <option value="{{ $teacher->id }}">{{ $teacher->fullname }}</option>
-                    @endforeach 
-                </select>
-                <button type="submit" class="btn btn-dark">Thêm mới</button>
-            </form> -->
-            </div>
-        </div>
-@endsection
-=======
 
             </div>
         </div>
 @endsection
->>>>>>> a6dbd1e5f59de9bbe6811f4d180dccb043c341e2

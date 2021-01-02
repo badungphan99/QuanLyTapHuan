@@ -6,6 +6,10 @@ body label{
     font-size: 14px !important;
 }
 
+h1{
+    margin: 45px 0 10px  !important;
+}
+
 .head-content{
     margin-top: 3em;
 }
@@ -24,11 +28,16 @@ i{
 }
 
 thead th{
-    padding: 21px 10px 21px 40px !important;
+    padding: 15px 15px 15px 40px !important;
     
 }
 
 tbody td,th{
-    padding: 16px 10px 16px 40px !important;
+    vertical-align: middle !important;
+    padding: 15px 15px 15px 40px !important;
     border-bottom: 1px solid #dddddd;
+}
+
+tbody td ul li{
+    list-style-type:circle!important;
 }
