@@ -56,6 +56,9 @@ Route::get('/course/student/{id}', 'CourseController@view_student')->name('view_
 Route::post('/student/store/{id}', 'CourseController@store_student')->name('store_student');
 Route::get('/student/delete/{id}', 'CourseController@delete_student')->name('delete_student');
 
+Route::get('/student/list', 'StudentController@index')->name('list_student');
+
+
 Route::get('/program', 'ProgramController@index')->name('index_program');
 Route::get('/program/create', 'ProgramController@create')->name('create_program_form');
 Route::post('/program/store', 'ProgramController@store')->name('store_program');
