@@ -546,7 +546,7 @@ section.pricing-tables .table-item {
   background-color: #eeeeee;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  padding: 0px 0px 40px 0px;
+  padding: 0px 0px 10px 0px;
 }
 
 
@@ -567,7 +567,7 @@ section.pricing-tables .table-item .top-content h1 {
 }
 
 section.pricing-tables .table-item ul {
-  margin: 40px 0px!important;
+  /* margin: 40px 0px!important; */
 }
 
 section.pricing-tables .table-item ul li {
@@ -737,7 +737,7 @@ section.contact .section-heading {
   width: 60%;
   margin: 0 auto;
   background-color: #fff;
-  //background-color: #fff;
+  background-color: #fff;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .modal-animated-in {

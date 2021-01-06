@@ -45,7 +45,7 @@
                         </small>
                         @if (Route::has('password.request'))
                             <a class = "btn btn-forgot" style = 'margin: 0px;' href="{{ route('password.request') }}">
-                                <small>{{ __('Quên mật khẩu?') }}</small>
+                                {{ __('Quên mật khẩu?') }}
                             </a>
                         @endif
 
@@ -59,7 +59,7 @@
                         </div>
                         <div class="btn-signin">
                             @if (Route::has('register'))
-                                <small><span>Chưa có tài khoản?</span></small> <a class="btn align-items-" href="{{ route('register') }}" style = 'padding: 0px; text-decoration:underline;'><small>Đăng ký tại đây!</small></a>
+                                <small><span>Chưa có tài khoản?</span></small> <a class="btn align-items-" href="{{ route('register') }}" style = 'padding: 0px; text-decoration:underline;'>Đăng ký tại đây!</a>
                             @endif
                         </div>
                     </div>
