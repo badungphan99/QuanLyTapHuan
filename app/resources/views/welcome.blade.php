@@ -49,13 +49,6 @@
                                 <ul>
                                     <li><a href="">{{$course->name}}</a></li>
                                     <li><a href="">{{$course->location}}</a></li>
-                                    <li>
-                                        @if($course->status == 1)
-                                            <a href="">Active</a>
-                                        @else
-                                        <a href="">Inactive</a>
-                                        @endif
-                                    </li>
                                 </ul>
                                 <a href="#" class="btn btn-secondary" role="button">Đăng ký</a>
                             </div>
