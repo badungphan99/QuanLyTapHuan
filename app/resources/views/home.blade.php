@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-
+<title>Trang cá nhân</title>
 @section('content')
 <div class="content">
     <div class="dashboard_left">
