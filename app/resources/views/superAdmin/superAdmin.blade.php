@@ -48,13 +48,8 @@
 
     </div>
     <div class="col-lg-10 col-md-10" id="mainRight">
-        <div class="row head-right">
-            <div class="col-lg-9 col-md-9 search-box">
-                <form class="search-form" action=""> <input class="form-control" placeholder="Search fullname, username..." type="text">
-                    <button class="btn btn-link search-btn"><i class="fas fa-search" style="color:black;"></i></button>
-                </form>
-            </div>
-            <div class="col-lg-3 col-md-3 add-user d-flex justify-content-end">
+        <div class="row head-right justify-content-end">
+            <div class="add-user">
                     <button class="btn dropbtn btn-lg btn-outline-dark"  data-toggle="modal" data-target="#modalAdd"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Thêm người dùng</button>
             </div>
         </div>
@@ -144,7 +139,6 @@
                     <table class="table table-hover ">
                         <thead>
                             <tr>
-                                <th><input type="checkbox"></th>
                                 <th>Họ tên</th>
                                 <th>Tên đăng nhập</th>
                                 <th>Phân quyền</th>
@@ -152,6 +146,7 @@
                                 <th>Email</th>
                                 <th>Điện thoại</th>
                                 <th>Chức vụ</th>
+                                <th>Trạng thái</th>
                                 <th>Chi tiết </th>
                             </tr>
                         </thead>
@@ -159,7 +154,6 @@
                         <tbody style=" background-color: white; ">
                             @foreach ($listUser as $user)
                                 <tr>
-                                    <td><input type="checkbox"></td>
                                     <td>{{ $user['fullname'] }}</td>
                                     <td>{{ $user['username'] }}</td>
                                     <td>@if ($user['role'] == 1) Quản trị hệ thống
@@ -171,10 +165,9 @@
                                     <td>{{ $user['email'] }}</td>
                                     <td>{{ $user['phone_number'] }}</td>
                                     <td>{{ $user['position'] }}</td>
+                                    <td>Trạng thái</td>
                                     <td>
                                         <a href="" style="color:black;margin-left:5px; font-size:20px" data-toggle="modal" data-target="#modalEdit{{$user['id']}}"><i class="fas fa-edit"></i></a>
-                                        <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fa fa-trash-o "></i></a>
-{{--                                        <a href=" " style="color:black;margin-left:5px; font-size:20px "><i class="fas fa-user"></i></a>--}}
                                     </td>
                                     <div id="modalEdit{{$user['id']}}" class="modal fade" role="dialog">
                                         <div class="modal-dialog" style="width:500px; height:800px">
@@ -210,6 +203,9 @@
                                                                     <!-- position -->
                                                                     <div class="form-group"><label class="form-label control-label">Chức vụ</label>
                                                                         <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="10" value="{{ $user['role'] }}"></div>
+                                                                    </div>
+                                                                    <div class="form-group"><label class="form-label control-label">Trạng thái</label>
+                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Trạng thái" maxlength="10" value="#"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Email</label>
                                                                         <div class="form-wrap"><input id="" name="email" class="form-control" type="text" maxlength="10" value="{{ $user['email'] }}"></div>
