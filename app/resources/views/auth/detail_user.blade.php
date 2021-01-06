@@ -1,5 +1,10 @@
 @extends('layouts.app')
-<title>User Detail</title>
+<title>Thông tin cá nhân</title>
+<style>
+    .user-info{
+        align-self: center;
+    }
+</style>
 @section('content')
 
     <div class="container">
@@ -7,14 +12,15 @@
             <!-- <div class="row"> -->
             <div class="content_user">
                 <h1 class="heading-page"><i class="fas fa-home"> / </i>
-                    <span><b><i class="fas fa-user"></i></b></span></h1>
+                    <span><b><i class="fas fa-user"></i></b></span>&nbsp Thông tin cá nhân</h1>
                 <div class="info_user">
 
                     <div class="edit-user">
-                        <button class="btn dropbtn" style="background-color: rgb(204, 199, 199); margin-top:10px; margin-bottom:15px; margin-left: 47px;" data-toggle="modal" data-target="#modalEdit">
-                            Chỉnh sửa thông tin
-                        </button>
-
+                        <div class="row justify-content-end">
+                            <button class="btn btn-lg btn-outline-dark dropbtn" style="margin-top:10px; margin-bottom:15px; margin-left: 47px;" data-toggle="modal" data-target="#modalEdit">
+                                <span><i class="fas fa-edit"></i></span> &nbsp Chỉnh sửa
+                            </button>
+                        </div>
                         <div id="modalEdit" class="modal fade" role="dialog">
                             <div class="modal-dialog" style="width:500px; height:800px">
                                 <!-- Modal content-->
@@ -60,10 +66,10 @@
                                                 </div>
                                                 <div class="form-group"><label class="form-label control-label">Vai trò</label>
                                                     <div class="form-wrap"><input id="" name="role" class="form-control" type="text" maxlength="10" readonly value="@if ($user['role'] == 1) Quản trị hệ thống
-                                                                                                                                                                        @elseif ($user['role'] == 2) Quản lý
-                                                                                                                                                                        @elseif ($user['role'] == 3) Giáo viên
-                                                                                                                                                                        @elseif ($user['role'] == 4) Học viên
-                                                                                                                                                                        @endif"></div>
+                                                    @elseif ($user['role'] == 2) Quản lý
+                                                    @elseif ($user['role'] == 3) Giáo viên
+                                                    @elseif ($user['role'] == 4) Học viên
+                                                    @endif"></div>
                                                 </div>
                                                 <div class="form-group"><label class="form-label control-label">Học hàm</label>
                                                     <div class="form-wrap"><input id="" name="academic_rank" class="form-control" type="text" maxlength="10" value="{{$user['academic_rank']}}"></div>
@@ -94,56 +100,51 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row ">
-                                        <label class="col-sm-4 col-form-label "><b><i class="fas fa-signature "></i> &nbsp; Họ tên: </b></label>
-                                        <div class="col-sm-8 ">{{$user['fullname']}}
+                                        <label class="col-sm-4 col-form-label"><b><i class="fas fa-signature "></i> &nbsp; Họ tên: </b></label>
+                                        <div class="col-sm-8 user-info">{{$user['fullname']}}
                                         </div>
                                     </div>
                                     <div class="form-group row ">
                                         <label class="col-sm-4 col-form-label "><b><i class="fas fa-user "></i> &nbsp; Tên đăng nhập: </b></label>
-                                        <div class="col-sm-8 "> {{$user['username']}}
+                                        <div class="col-sm-8 user-info"> {{$user['username']}}
                                         </div>
                                     </div>
-{{--                                    <div class="form-group row ">--}}
-{{--                                        <label class="col-sm-4 col-form-label "><b><i class="fas fa-lock "></i> &nbsp; Mật khẩu: </b></label>--}}
-{{--                                        <div class="col-sm-8 "> back-end hiển thị--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
                                     <div class="form-group row ">
                                         <label class="col-sm-4 col-form-label "><b><i class="fas fa-address-book "></i> &nbsp; Đơn vị: </b></label>
-                                        <div class="col-sm-8 "> {{$user['unit']}}
+                                        <div class="col-sm-8 user-info"> {{$user['unit']}}
                                         </div>
                                     </div>
                                     <div class="form-group row ">
                                         <label class="col-sm-4 col-form-label "><b><i class="fas fa-briefcase "></i> &nbsp;  Chức vụ: </b></label>
-                                        <div class="col-sm-8 "> {{$user['position']}}
+                                        <div class="col-sm-8 user-info"> {{$user['position']}}
                                         </div>
                                     </div>
                                     <div class="form-group row ">
                                         <label class="col-sm-4 col-form-label "><b><i class="fas fa-envelope "></i> &nbsp;  Email: </b></label>
-                                        <div class="col-sm-8 "> {{$user['email']}}
+                                        <div class="col-sm-8 user-info"> {{$user['email']}}
                                         </div>
                                     </div>
                                     <div class="form-group row ">
                                         <label class="col-sm-4 col-form-label "><b><i class="far fa-envelope "></i> &nbsp; Email khác:  </b></label>
-                                        <div class="col-sm-8 "> {{$user['other_email']}}
+                                        <div class="col-sm-8 user-info"> {{$user['other_email']}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col ">
                                     <div class="col ">
                                         <div class="form-group row ">
-                                            <label class="col-sm-4 col-form-label "><b><i class="fas fa-phone-square "></i> &nbsp;  Điện thoại: </b></label>
-                                            <div class="col-sm-8 "> {{$user['phone_number']}}
+                                            <label class="col-sm-4 col-form-label"><b><i class="fas fa-phone-square "></i> &nbsp;  Điện thoại: </b></label>
+                                            <div class="col-sm-8 user-info"> {{$user['phone_number']}}
                                             </div>
                                         </div>
                                         <div class="form-group row ">
-                                            <label class="col-sm-4 col-form-label "><b><i class="fas fa-phone-square "></i> &nbsp; Số ĐT khác: </b></label>
-                                            <div class="col-sm-8 "> {{$user['other_phone_number']}}
+                                            <label class="col-sm-4 col-form-label"><b><i class="fas fa-phone-square "></i> &nbsp; Số ĐT khác: </b></label>
+                                            <div class="col-sm-8 user-info"> {{$user['other_phone_number']}}
                                             </div>
                                         </div>
                                         <div class="form-group row ">
-                                            <label class="col-sm-4 col-form-label "><b><i class="fas fa-user-plus "></i> &nbsp; Vai trò: </b></label>
-                                            <div class="col-sm-8 "> @if ($user['role'] == 1) Quản trị hệ thống
+                                            <label class="col-sm-4 col-form-label"><b><i class="fas fa-user-plus "></i> &nbsp; Vai trò: </b></label>
+                                            <div class="col-sm-8 user-info"> @if ($user['role'] == 1) Quản trị hệ thống
                                                                     @elseif ($user['role'] == 2) Quản lý
                                                                     @elseif ($user['role'] == 3) Giáo viên
                                                                     @elseif ($user['role'] == 4) Học viên
@@ -151,18 +152,18 @@
                                             </div>
                                         </div>
                                         <div class="form-group row ">
-                                            <label class="col-sm-4 col-form-label "><b><i class="fas fa-plus-square "></i> &nbsp; Học hàm: </b></label>
-                                            <div class="col-sm-8 "> {{$user['academic_rank']}}
+                                            <label class="col-sm-4 col-form-label"><b><i class="fas fa-plus-square "></i> &nbsp; Học hàm: </b></label>
+                                            <div class="col-sm-8 user-info"> {{$user['academic_rank']}}
                                             </div>
                                         </div>
                                         <div class="form-group row ">
-                                            <label class="col-sm-4 col-form-label "><b><i class="far fa-plus-square "></i> &nbsp;  Học vị:  </b></label>
-                                            <div class="col-sm-8 "> {{$user['academic_degree']}}
+                                            <label class="col-sm-4 col-form-label"><b><i class="far fa-plus-square "></i> &nbsp;  Học vị:  </b></label>
+                                            <div class="col-sm-8 user-info"> {{$user['academic_degree']}}
                                             </div>
                                         </div>
                                         <div class="form-group row ">
-                                            <label class="col-sm-4 col-form-label "><b><i class="fas fa-sticky-note "></i> &nbsp;  Ghi chú: </b></label>
-                                            <div class="col-sm-8 "> {{$user['note']}}
+                                            <label class="col-sm-4 col-form-label"><b><i class="fas fa-sticky-note "></i> &nbsp;  Ghi chú: </b></label>
+                                            <div class="col-sm-8 user-info"> {{$user['note']}}
                                             </div>
                                         </div>
                                     </div>

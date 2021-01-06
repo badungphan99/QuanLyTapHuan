@@ -1,5 +1,6 @@
 @extends('layouts.app')
-<title>SuperAdmin </title>
+<title>Chỉnh sửa thông tin</title>
+<style></style>
 @section('content')
 
 <div class="container">
