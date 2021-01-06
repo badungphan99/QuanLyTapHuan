@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/owl.carousel.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/fontAwesome.css') }}">
@@ -38,11 +39,13 @@
     <link rel="styleseet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/hero-slider.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl-carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('css/super_admin.css') }}"/> -->
 
 
@@ -90,6 +93,7 @@
                                     <div class="dropdown-content ">
                                         <a href="{{ url('/home') }}"><i class="fas fa-home"></i>&nbsp Home</a>
                                         <a href="{{ url('/password/update') }}"><i class="fas fa-key"></i></i>&nbsp Đổi mật khẩu</a>
+                                        <a href="{{ url('/detail_user') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp Thông tin cá nhân</a>
                                         <a href="{{url ('logout')}}" data-toggle="tooltip" title="Log out"><i class="fas fa-sign-out-alt"></i>&nbsp Đăng xuất</a>
                                     </div>
                                 </span>
