@@ -40,25 +40,20 @@
             @endif
             <div class="row">
                 @foreach ($courses as $key => $course)
-                    <div class="col-md-4">
-                        <div class="table-item">
-                            <div class="top-content">
-                                <img src="img/course.jpg">
+                    @if($course->status == 1)
+                        <div class="col-md-4">
+                            <div class="table-item">
+                                <div class="top-content">
+                                    <img src="img/course.jpg">
+                                </div>
+                                <ul>
+                                    <li><a href="">{{$course->name}}</a></li>
+                                    <li><a href="">{{$course->location}}</a></li>
+                                </ul>
+                                <a href="#" class="btn btn-secondary" role="button">Đăng ký</a>
                             </div>
-                            <ul>
-                                <li><a href="">{{$course->name}}</a></li>
-                                <li><a href="">{{$course->location}}</a></li>
-                                <li>
-                                    @if($course->status == 1)
-                                        <a href="">Active</a>
-                                    @else
-                                    <a href="">Inactive</a>
-                                    @endif
-                                </li>
-                            </ul>
-                            <a href="#" class="btn btn-secondary" role="button">Đăng ký</a>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
             </div>
         </div>

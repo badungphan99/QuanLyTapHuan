@@ -64,68 +64,70 @@
                         </div>
                         <div class="modal-body">
                             <div class="col-md-12">
-                                <form action="">
+                                <form action="{{url('/superAdmin/create-new-account')}}" method="POST">
+                                @csrf <!-- {{ csrf_field() }} -->
                                     <div class="col-md-6">
                                         <div class="form-group"><label class="form-label control-label">Họ tên</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Họ tên" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="fullname" class="form-control" type="text" placeholder="Họ tên" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Tên đăng nhập</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Tên đăng nhập" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="username" class="form-control" type="text" placeholder="Tên đăng nhập" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Mật khẩu</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Mật khẩu" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="password" class="form-control" type="text" placeholder="Mật khẩu" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Xác nhận mật khẩu</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Xác nhận lại mật khẩu" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Xác nhận lại mật khẩu" maxlength="200"></div>
                                         </div>
                                         <!-- unit -->
                                         <div class="form-group"><label class="form-label control-label">Đơn vị</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Đơn vị" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="unit" class="form-control" type="text" placeholder="Đơn vị" maxlength="200"></div>
                                         </div>
 
                                         <div class="form-group"><label class="form-label control-label">Email</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Email" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="email" class="form-control" type="text" placeholder="Email" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Email khác</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Email khác" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="other_email" class="form-control" type="text" placeholder="Email khác" maxlength="200"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 ">
                                         <div class="form-group"><label class="form-label control-label">Điện thoại</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Điện thoại" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="phone_number" class="form-control" type="text" placeholder="Điện thoại" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Số điện thoại khác</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Số điện thoại khác" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="other_phone_number" class="form-control" type="text" placeholder="Số điện thoại khác" maxlength="200"></div>
                                         </div>
                                         <!-- role -->
                                         <div class="form-group"><label class="form-label control-label">Vai trò</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Vai trò " maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Vai trò " maxlength="200"></div>
                                         </div>
                                         <!-- position -->
                                         <div class="form-group"><label class="form-label control-label">Chức vụ</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Chức vụ" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="position" class="form-control" type="text" placeholder="Chức vụ" maxlength="200"></div>
                                         </div>
                                         <!-- academic_rank -->
                                         <div class="form-group"><label class="form-label control-label">Học hàm</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Học Hàm" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="academic_degree" class="form-control" type="text" placeholder="Học Hàm" maxlength="200"></div>
                                         </div>
                                         <!-- academic_degree -->
                                         <div class="form-group"><label class="form-label control-label">Học vị</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Học vị" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="academic_rank" class="form-control" type="text" placeholder="Học vị" maxlength="200"></div>
                                         </div>
                                         <!-- note -->
                                         <div class="form-group"><label class="form-label control-label">Ghi chú</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Ghi chú" maxlength="10"></div>
+                                            <div class="form-wrap"><input id="" name="note" class="form-control" type="text" placeholder="Ghi chú" maxlength="200"></div>
                                         </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-outline-dark">Save</button>
+                                        <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </form>
 
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
-                            <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -165,7 +167,7 @@
                                     <td>{{ $user['email'] }}</td>
                                     <td>{{ $user['phone_number'] }}</td>
                                     <td>{{ $user['position'] }}</td>
-                                    <td>Trạng thái</td>
+                                    <td>@if ($user['status'] == 1) Kích hoạt @else Vô hiệu hoá @endif</td>
                                     <td>
                                         <a href="" style="color:black;margin-left:5px; font-size:20px" data-toggle="modal" data-target="#modalEdit{{$user['id']}}"><i class="fas fa-edit"></i></a>
                                     </td>
@@ -186,52 +188,52 @@
 
                                                                 <div class="col-md-6">
                                                                     <div class="form-group"><label class="form-label control-label">Họ tên</label>
-                                                                        <div class="form-wrap"><input id="" name="fullname" class="form-control" type="text" maxlength="10" value="{{ $user['fullname'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="fullname" class="form-control" type="text" maxlength="200" value="{{ $user['fullname'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Tên đăng nhập</label>
-                                                                    <div class="form-wrap"><input id="" name="username" class="form-control" type="text" maxlength="10" readonly value="{{ $user['username'] }}"></div>
+                                                                    <div class="form-wrap"><input id="" name="username" class="form-control" type="text" maxlength="200" readonly value="{{ $user['username'] }}"></div>
                                                                     </div>
                                                                     {{-- <div class="form-group"><label class="form-label control-label">Mật khẩu</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10" value="{{ $user['password'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="200" value="{{ $user['password'] }}"></div>
                                                                     </div> --}}
                                                                     <!-- <div class="form-group"><label class="form-label control-label">Xác nhận mật khẩu</label>
-                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="10"></div>
+                                                                        <div class="form-wrap"><input id="" class="form-control" type="text" maxlength="200"></div>
                                                                     </div> -->
                                                                     <div class="form-group"><label class="form-label control-label">Đơn vị</label>
-                                                                        <div class="form-wrap"><input id="" name="unit" class="form-control" type="text" maxlength="10" value="{{ $user['unit'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="unit" class="form-control" type="text" maxlength="200" value="{{ $user['unit'] }}"></div>
                                                                     </div>
                                                                     <!-- position -->
                                                                     <div class="form-group"><label class="form-label control-label">Chức vụ</label>
-                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="10" value="{{ $user['role'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="200" value="{{ $user['role'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Trạng thái</label>
-                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Trạng thái" maxlength="10" value="#"></div>
+                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Trạng thái" maxlength="200" value="{{ $user['status'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Email</label>
-                                                                        <div class="form-wrap"><input id="" name="email" class="form-control" type="text" maxlength="10" value="{{ $user['email'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="email" class="form-control" type="text" maxlength="200" value="{{ $user['email'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Email khác</label>
-                                                                        <div class="form-wrap"><input id="" name="other_email" class="form-control" type="text" maxlength="10" value="{{ $user['other_email'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="other_email" class="form-control" type="text" maxlength="200" value="{{ $user['other_email'] }}"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6 ">
                                                                     <div class="form-group"><label class="form-label control-label">Điện thoại</label>
-                                                                        <div class="form-wrap"><input id="" name="phone_number" class="form-control" type="text" maxlength="10" value="{{ $user['phone_number'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="phone_number" class="form-control" type="text" maxlength="200" value="{{ $user['phone_number'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Số điện thoại khác</label>
-                                                                        <div class="form-wrap"><input id="" name="other_phone_numer" class="form-control" type="text" maxlength="10" value="{{ $user['other_phone_number'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="other_phone_numer" class="form-control" type="text" maxlength="200" value="{{ $user['other_phone_number'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Vai trò</label>
-                                                                        <div class="form-wrap"><input id="" name="position" class="form-control" type="text" maxlength="10" value="{{ $user['position'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="position" class="form-control" type="text" maxlength="200" value="{{ $user['position'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Học hàm</label>
-                                                                        <div class="form-wrap"><input id="" name="academic_rank" class="form-control" type="text" maxlength="10" value="{{ $user['academic_rank'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="academic_rank" class="form-control" type="text" maxlength="200" value="{{ $user['academic_rank'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Học vị</label>
-                                                                        <div class="form-wrap"><input id="" name="academic_degree" class="form-control" type="text" maxlength="10" value="{{ $user['academic_degree'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="academic_degree" class="form-control" type="text" maxlength="200" value="{{ $user['academic_degree'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Ghi chú</label>
-                                                                        <div class="form-wrap"><input id="" name="note" class="form-control" type="text" maxlength="10" value="{{ $user['note'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="note" class="form-control" type="text" maxlength="200" value="{{ $user['note'] }}"></div>
                                                                     </div>
                                                                 </div>
 

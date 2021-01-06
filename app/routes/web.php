@@ -77,8 +77,5 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/register/{id}', [HomeController::class, 'register_course'])->name('register_course');
 
-
-// Route::get('/course', 'SuperAdminController@detail_infor_user')->name('index_course');
-
-// Route::get('/course/edit/{id}', 'CourseController@show')->name('show_course');
-// Route::post('/course/edit/{id}', 'CourseController@update')->name('edit_course');
+Route::get('/detail_user', [UserController::class, 'showDetailForm'])->name('showDetailForm');
+Route::post('/detail_user', [UserController::class, 'update'])->name('updateDetailUser');

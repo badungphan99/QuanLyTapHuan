@@ -36,6 +36,7 @@ class SuperAdminController extends Controller
         $list_users = User::query()
                     ->whereIn('role', $roles)
                     ->whereIn('status', $status)
+                    ->orderBy('fullname')
                     ->get();
         return view('superAdmin/superAdmin')->with('listUser', json_decode($list_users, true))->with('is_checked', $isChecked);
 
@@ -58,7 +59,7 @@ class SuperAdminController extends Controller
         $user->academic_rank = $request->academic_rank;
         $user->academic_degree = $request->academic_degree;
         $user->note = $request->note;
-
+        $user->status = $request->status;
         $user->save();
         return redirect('superAdmin')->with('status',"update successfully");
     }
@@ -94,12 +95,23 @@ class SuperAdminController extends Controller
         $user->academic_rank = $request->academic_rank;
         $user->academic_degree = $request->academic_degree;
         $user->note = $request->note;
-
+        $user->status = 1;
         $user->save();
 
         return redirect('superAdmin')->with('status',"create successfully");
     }
 
+    public function search(Request $request)
+    {
+        $user = User::where('username', 'LIKE', $request->name)->orWhere('email', 'LIKE' , $request->name)->all();
+        return view('superAdmin/superAdmin')->with('listUser', json_decode($user, true));
+    }
+
+    public function rm_user(Request $request)
+    {
+        $user = User::where('username', '=', $request->deluser)->first();
+        $user->status = 0;
+    }
     // public function show_data()
     // {
     //     $makeups=DB::table('products');
