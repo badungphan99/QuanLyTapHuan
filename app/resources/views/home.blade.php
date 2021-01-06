@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/home.css') }}"> @section('content')
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
+@section('content')
 <div class="content">
     <div class="dashboard_left">
         <div class="left_item">
@@ -33,12 +35,6 @@
                         </a>
                     </li>
                     @endif
-                    <li class="sub-menu">
-                        <a href="/student/list" class="">
-                            <i class="fas fa-user"></i>
-                            <span>Danh sách sinh viên</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -46,30 +42,6 @@
 
 
     <div class="dashboard_right">
-        <!-- <div class="row justify-content-start">
-            
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-                    <div class="card-body ">
-                        @if (session('status'))
-                        <div class="alert alert-secondary" role="alert ">
-                            {{ session('status') }}
-                        </div>
-                        @endif {{ __('You are logged in!') }}
-                    </div>
-                    <div class="card-register">
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                             <p>{{ session('success') }}</p>
-                        </div>
-                    @endif               
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
         <section class="pricing-tables nd">
             <div class="container">
                 <div class="alert alert-success login-alert" role="alert">
@@ -92,20 +64,17 @@
                             <div class="table-item">
                                 <div class="content-top">
                                     <img src="img/course.jpg" class="course-img">
-                                    <div class="course-reg">
-                                        <a href="/home/register/{{$course->id}}" class="btn-reg btn btn-lg btn-secondary" role="button"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Đăng ký</a>
-                                    </div>
                                 </div>
                                 <div class="content-bot">
                                     <ul class="text-left">
-                                        <li>Khóa học: <br><a href=" ">{{$course->name}}</a></li>
+                                        <li>Khóa học: <br><b>{{$course->name}}</b></li>
                                     </ul>
                                     <div class="row course-info">
                                         <div class="col-xl-6 col-md-6 col-12 left-info justify-content-start">
-                                            Địa điểm: <br><a href=" ">{{$course->location}}</a>
+                                            Địa điểm: <br>{{$course->location}}
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
-                                            Trạng thái: <br><a href="#">Active</a>
+                                            Trạng thái: <br>Active
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +97,7 @@
                     </td>
                 </tr>
                 @endif
-                <div class="row owl-carousel" style="margin-left:0px;">
+                <div class="row owl-carousel owl-theme" style="margin-left:0px;">
                     @foreach ($courses as $key => $course)
                         @if($course->status == 1)
                         <div class="table-item ">
@@ -140,14 +109,14 @@
                             </div>
                             <div class="content-bot">
                                 <ul class="text-left">
-                                    <li>Khóa học: <br><a href=" ">{{$course->name}}</a></li>
+                                    <li>Khóa học: <br><b>{{$course->name}}</b></li>
                                 </ul>
                                 <div class="row course-info">
                                     <div class="col-xl-6 col-md-6 col-12 left-info justify-content-start">
-                                        Địa điểm: <br><a href=" ">{{$course->location}}</a>
+                                        Địa điểm: <br>{{$course->location}}
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
-                                        Trạng thái: <br><a href="#">Active</a>
+                                        Trạng thái: <br>Active
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +134,6 @@
             loop: true,
             margin: 10,
             autoplay: true,
-            dotsEach: true,
             autoplayTimeout: 5000,
             nav: true,
             navText: ["<div class='nav-btn prev-slide'><span><i class='fa fa-chevron-left' aria-hidden='true'></i></span></div>", "<div class='nav-btn next-slide'><span><i class='fa fa-chevron-right' aria-hidden='true'></i></span></div>"],

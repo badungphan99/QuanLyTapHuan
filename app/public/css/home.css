@@ -1,3 +1,4 @@
+
 .dashboard_left {
     float: left;
     width: 20%;
@@ -180,7 +181,7 @@ ul.sidebar-menu li a span {
     opacity: 0.3;
 }
 
-.content-top:hover .course-reg {
+.content-top:hover .course-reg{
     opacity: 1;
 }
 

@@ -26,12 +26,6 @@
                             <span>Quản lí nhân sự</span>
                         </a>
                     </li>
-                    <li class="sub-menu">
-                        <a href="/student/list" class="">
-                            <i class="fas fa-user"></i>
-                            <span>Danh sách sinh viên</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
