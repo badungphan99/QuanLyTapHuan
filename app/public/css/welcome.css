@@ -80,7 +80,84 @@ html, body {
 .modal-header h3{
     text-align: center;
 }
+*,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
 
+    body {
+      background:#f5f5f5;
+      width:auto;
+      height:auto;
+    }
+    
+    .slider-wrapper {
+      width:100%;
+      overflow: hidden;
+      padding: 25px 20px 20px;
+      white-space: wrap;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding-bottom: 5px;
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    p2 {
+      display: inline-block;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .prev {
+      color: black;
+      position: absolute;
+      top: 45%;
+      left: -10px;
+      font-size: 1.5em;
+
+      :hover {
+        cursor: pointer;
+        color: black;
+      }
+    }
+
+    .next {
+      color: black;
+      position: absolute;
+      top: 45%;
+      right: 10px;
+      font-size: 1.5em;
+
+      :hover {
+        cursor: pointer;
+        color: black;
+      }
+    }
+
+    .fact {
+      vertical-align: top;
+      display: inline-block;
+      height: auto;
+      width: 200px;
+      background-color: white;
+      padding: 20px;
+      margin: 0px 25px 0px 5px;
+      border-radius: 15px;
+      box-shadow:
+        0 1.6px 3.6px rgba(0, 0, 0, 0.01),
+        0 4.5px 10px rgba(0, 0, 0, 0.015),
+        0 10.9px 24.1px rgba(0, 0, 0, 0.02),
+        0 36px 80px rgba(0, 0, 0, 0.03);
+    }
 /* .modal{
 overflow:hidden;
 }

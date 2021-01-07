@@ -15,12 +15,54 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="banner-img">
                 <h2></h2>
-                <span></span>                            
+                <span></span> 
+
             </div>                       
         </div>
     </div>
 </section>
+<div class="slider-wrapper">
+    <div class="slider">
+      <div class="col-md-12 heroSlider-fixed">
+        <div class="overlay">
 
+          <div class="slider responsive">
+            <div class="fact">
+              <img src="../img/img1.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img3.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img4.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img2.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img5.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img6.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="prev">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+          </div>
+          <div class="next">
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 <section class="pricing-tables">
     <div class="container">
         <div class="row">
@@ -70,5 +112,37 @@
     $("#loginModal").on('show.bs.modal', function (e) {
         $("#registerModal").modal("hide");
     });
+    $(".responsive").slick({
+        prevArrow: $(".prev"),
+        nextArrow: $(".next"),
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: false
+                }
+            },
+            {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+            }
+        ]
+        });
 </script>
 @endsection
