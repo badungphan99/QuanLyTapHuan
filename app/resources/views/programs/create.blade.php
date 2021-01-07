@@ -12,11 +12,11 @@
                 </div>
                 <div class="form-group">
                     <label for="Program">Chương trình:</label>
-                    <input type="text" class="form-control" id="date" placeholder="Enter the date" name="program" required>
+                    <input type="text" class="form-control" id="date" placeholder="Enter the program" name="program" required>
                 </div>
                 <div class="form-group">
                     <label for="nameCourse">Trạng thái:</label>
-                    <input type="text" class="form-control" id="status" placeholder="Enter name" name="status" required>
+                    <input type="text" class="form-control" id="status" placeholder="Enter the status" name="status" required>
                 </div>
                 <div class="row justify-content-end btn-create">
                     <button type="submit" class="btn btn-lg btn-outline-dark"><i class="far fa-edit"></i>&nbsp&nbsp</span>Cập nhật</button>&nbsp&nbsp&nbsp
