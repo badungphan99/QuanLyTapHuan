@@ -54,12 +54,6 @@
             <button class="navbar-toggler btn-lg " type="link" data-toggle="collapse" data-target="#headnav"><span><i class="fa fa-bars"></i></span></button>
             <div class="collapse navbar-collapse justify-content-end" id="headnav">
                 <ul class="dropdown menu">
-                    <li>
-                        <form class="form-inline" action="">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm">
-                            <button class="btn btn-dark" style="padding: 6.5px 10px" type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </li>
                     @if (Route::has('login'))
                         @auth
                             <li>
