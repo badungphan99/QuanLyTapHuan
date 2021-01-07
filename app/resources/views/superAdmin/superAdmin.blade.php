@@ -153,7 +153,7 @@
                             </tr>
                         </thead>
 
-                        <tbody style=" background-color: white; ">
+                        <tbody style=" background-color: #ffffff; ">
                             @foreach ($listUser as $user)
                                 <tr>
                                     <td>{{ $user['fullname'] }}</td>
@@ -207,7 +207,7 @@
                                                                         <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="200" value="{{ $user['role'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Trạng thái</label>
-                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Trạng thái" maxlength="200" value="{{ $user['status'] }}"></div>
+                                                                        <div class="form-wrap"><input id="" name="status" class="form-control" type="text" placeholder="Trạng thái" maxlength="200" value="{{ $user['status'] }}"></div>
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Email</label>
                                                                         <div class="form-wrap"><input id="" name="email" class="form-control" type="text" maxlength="200" value="{{ $user['email'] }}"></div>
