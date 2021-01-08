@@ -111,10 +111,48 @@
   <div class="jumbotron">
     <h1>Tại sao chọn chúng tôi</h1>      
     <p>Những khóa tập huấn của chúng tôi cung cấp những kiến thức đầy đủ nhất với phương pháp học tập đơn giản nhưng hiệu quả giúp học viên dễ dàng tiếp thu và đạt được kết quả tốt nhất.</p>
-  </div>      
+  </div> 
+
 </div>
 
+<section class="our-blog">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card">
+                    <img src="../img/img7.jpg" alt="">
+                    <div class="card-body" align="center">
+                        <h5 class="card-title">
+                            <a href="#">Kiến thức chọn lọc</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col">
+                <div class="card">
+                    <img src="../img/img8.jpg" alt="">
+                    <div class="card-body" align="center">
+                        <h5 class="card-title">
+                            <a href="#">Khóa học đa dạng</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="../img/img9.jpg" alt="">
+                    <div class="card-body" align="center">
+                        <h5 class="card-title">
+                            <a href="#">Hiệu quả rõ ràng</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script>
     $("#registerModal").on('show.bs.modal', function (e) {
