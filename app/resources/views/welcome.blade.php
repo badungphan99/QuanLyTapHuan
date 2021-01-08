@@ -21,6 +21,8 @@
         </div>
     </div>
 </section>
+
+
 <div class="slider-wrapper">
     <div class="slider">
       <div class="col-md-12 heroSlider-fixed">
@@ -32,11 +34,7 @@
             </div>
 
             <div class="fact">
-              <img src="../img/img3.jpg" alt="" />
-            </div>
-
-            <div class="fact">
-              <img src="../img/img4.jpg" alt="" />
+              <img src="../img/img5.jpg" alt="" />
             </div>
 
             <div class="fact">
@@ -44,7 +42,11 @@
             </div>
 
             <div class="fact">
-              <img src="../img/img5.jpg" alt="" />
+              <img src="../img/img2.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img3.jpg" alt="" />
             </div>
 
             <div class="fact">
@@ -62,7 +64,8 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
+
 <section class="pricing-tables">
     <div class="container">
         <div class="row">
@@ -101,10 +104,18 @@
         </div>
     </div>
 </section>
-<br>
+<br><br><br>
+  
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Tại sao chọn chúng tôi</h1>      
+    <p>Những khóa tập huấn của chúng tôi cung cấp những kiến thức đầy đủ nhất với phương pháp học tập đơn giản nhưng hiệu quả giúp học viên dễ dàng tiếp thu và đạt được kết quả tốt nhất.</p>
+  </div>      
+</div>
 
 
-        
+
 <script>
     $("#registerModal").on('show.bs.modal', function (e) {
         $("#loginModal").modal("hide");
@@ -144,5 +155,6 @@
             }
         ]
         });
+        
 </script>
 @endsection
