@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('academic_rank')->nullable(true);
             $table->string('academic_degree')->nullable(true);
             $table->string('note')->nullable(true);
-            $table->integer('role')->default(3);
+            $table->integer('role')->default(4);
             $table->boolean('status')->default(true);
         });
     }

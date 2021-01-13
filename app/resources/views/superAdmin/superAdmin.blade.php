@@ -74,10 +74,10 @@
                                             <div class="form-wrap"><input id="" name="username" class="form-control" type="text" placeholder="Tên đăng nhập" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Mật khẩu</label>
-                                            <div class="form-wrap"><input id="" name="password" class="form-control" type="text" placeholder="Mật khẩu" maxlength="200"></div>
+                                            <div class="form-wrap"><input id="" name="password" class="form-control" type="password" placeholder="Mật khẩu" maxlength="200"></div>
                                         </div>
                                         <div class="form-group"><label class="form-label control-label">Xác nhận mật khẩu</label>
-                                            <div class="form-wrap"><input id="" class="form-control" type="text" placeholder="Xác nhận lại mật khẩu" maxlength="200"></div>
+                                            <div class="form-wrap"><input id="" class="form-control" type="password" placeholder="Xác nhận lại mật khẩu" maxlength="200"></div>
                                         </div>
                                         <!-- unit -->
                                         <div class="form-group"><label class="form-label control-label">Đơn vị</label>
