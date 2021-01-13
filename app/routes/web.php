@@ -79,3 +79,6 @@ Route::get('/home/register/{id}', [HomeController::class, 'register_course'])->n
 
 Route::get('/detail_user', [UserController::class, 'showDetailForm'])->name('showDetailForm');
 Route::post('/detail_user', [UserController::class, 'update'])->name('updateDetailUser');
+
+Route::get('/plot', [\App\Http\Controllers\PlotController::class, 'index'])->name('plot');
+

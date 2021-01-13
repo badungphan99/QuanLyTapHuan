@@ -26,7 +26,12 @@
                             <span>Quản lí nhân sự</span>
                         </a>
                     </li>
-
+                    <li class="sub-menu">
+                        <a href="/superAdmin">
+                            <i class="fa fa-calculator" aria-hidden="true"></i>
+                            <span>Thống kê</span>
+                        </a>
+                    </li>
                     @elseif ( $role == 2 )
                     <li class="sub-menu">
                         <a href="/superAdmin" class="">
