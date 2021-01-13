@@ -66,7 +66,11 @@
                             <p class="font-weight-light">{{ $program->program }}</p>
                         </td>
                         <td>
-                            <p class="font-weight-light">{{ $program->status }}</p>
+                            <p class="font-weight-light">
+                                @if($program->status == 1) Kích hoạt
+                                @elseif($program->status == 0) Vô hiệu hóa
+                                @endif
+                            </p>
                         </td>
                         <td><a href="/program/courses/{{$program->id}}" class="btn btn-lg btn-outline-dark"><span><i
                                         class="fa fa-list-ul" aria-hidden="true"></i></span>&nbsp Các khóa học</a></td>

@@ -45,7 +45,15 @@
                 </div>
                 <div class="form-group">
                     <label for="nameCourse">Trạng thái:</label>
-                    <input type="text" class="form-control" id="status" name="status" value="{{$course->status}}">
+                    <select class="custom-select" name="status">
+                        @if ($course->status == 1)
+                            <option value="1" selected>Kích hoạt</option>
+                            <option value="0">Vô hiệu hóa</option>
+                        @elseif ($course->status == 0)
+                            <option value="0" selected>Vô hiệu hóa</option>
+                            <option value="1">Kích hoạt</option>
+                        @endif
+                    </select>
                 </div>
                 <div class="row btn-update justify-content-end">
                     <button type="submit" class="btn btn-lg btn-outline-dark"><span><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp Cập nhật</button>

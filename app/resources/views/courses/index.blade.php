@@ -75,9 +75,9 @@
                         <td><p class="font-weight-light">{{ $course->location }}</p></td>
                         <td>
                             @if ($course->status == 1)
-                                <p class="font-weight-dark">Active</p>
+                                <p class="font-weight-dark">Kích hoạt</p>
                             @else
-                                <p class="font-weight-light">Inactive</p>
+                                <p class="font-weight-light">Vô hiệu hóa</p>
                             @endif
                         </td>
                         <td>

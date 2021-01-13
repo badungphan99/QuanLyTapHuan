@@ -16,7 +16,15 @@
                 </div>
                 <div class="form-group">
                     <label for="nameCourse">Trạng thái:</label>
-                    <input type="text" class="form-control" id="status" name="status" value="{{$program->status}}">
+                    <select class="custom-select" name="status">
+                        @if ($program->status == 1)
+                            <option value="1" selected>Kích hoạt</option>
+                            <option value="0">Vô hiệu hóa</option>
+                        @elseif ($program->status == 0)
+                            <option value="0" selected>Vô hiệu hóa</option>
+                            <option value="1">Kích hoạt</option>
+                        @endif
+                    </select>
                 </div>
                 <div class="btn-update d-flex justify-content-end">
                     <button type="submit" class="btn btn-lg btn-outline-dark"><i class="far fa-edit"></i>&nbsp&nbsp</span>Cập nhật</button>&nbsp&nbsp&nbsp

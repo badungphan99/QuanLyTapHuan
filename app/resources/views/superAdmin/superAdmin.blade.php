@@ -204,10 +204,42 @@
                                                                     </div>
                                                                     <!-- position -->
                                                                     <div class="form-group"><label class="form-label control-label">Chức vụ</label>
-                                                                        <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="200" value="{{ $user['role'] }}"></div>
+                                                                        <select class="custom-select" name="role">
+                                                                            @if ($user['role'] == 1)
+                                                                            <option value="1" selected>Quản trị hệ thống</option>
+                                                                            <option value="2">Quản lý</option>
+                                                                            <option value="3">Giáo viên</option>
+                                                                            <option value="4">>Học viên</option>
+                                                                            @elseif ($user['role'] == 2)
+                                                                            <option value="2" selected>Quản lý</option>
+                                                                            <option value="1">Quản trị hệ thống</option>
+                                                                            <option value="3">Giáo viên</option>
+                                                                            <option value="4">Học viên</option>
+                                                                            @elseif ($user['role'] == 3)
+                                                                            <option value="3" selected>Giáo viên
+                                                                            <option value="2">Quản lý</option>
+                                                                            <option value="1">Quản trị hệ thống</option>
+                                                                            <option value="4">Học viên</option>
+                                                                            @elseif ($user['role'] == 4)
+                                                                            <option value="4" selected>Học viên</option>
+                                                                            <option value="2" >Quản lý</option>
+                                                                            <option value="3" >Giáo viên</option>
+                                                                            <option value="1">Quản trị hệ thống</option>
+                                                                            @endif
+                                                                        </select>
+                                                                        <!-- <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Chức vụ" maxlength="200" value="{{ $user['role'] }}"></div> -->
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Trạng thái</label>
-                                                                        <div class="form-wrap"><input id="" name="status" class="form-control" type="text" placeholder="Trạng thái" maxlength="200" value="{{ $user['status'] }}"></div>
+                                                                        <select class="custom-select" name="status">
+                                                                        @if ($user['status'] == 1)
+                                                                            <option value="1" selected>Kích hoạt</option>
+                                                                            <option value="0">Vô hiệu hóa</option>
+                                                                        @elseif ($user['status'] == 0)
+                                                                            <option value="0" selected>Vô hiệu hóa</option>
+                                                                            <option value="1">Kích hoạt</option>
+                                                                        @endif
+                                                                        </select>
+                                                                        <!-- <div class="form-wrap"><input id="" name="status" class="form-control" type="text" placeholder="Trạng thái" maxlength="200" value="{{ $user['status'] }}"></div> -->
                                                                     </div>
                                                                     <div class="form-group"><label class="form-label control-label">Email</label>
                                                                         <div class="form-wrap"><input id="" name="email" class="form-control" type="text" maxlength="200" value="{{ $user['email'] }}"></div>

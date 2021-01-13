@@ -21,8 +21,6 @@
         </div>
     </div>
 </section>
-
-
 <div class="slider-wrapper">
     <div class="slider">
       <div class="col-md-12 heroSlider-fixed">
@@ -34,19 +32,19 @@
             </div>
 
             <div class="fact">
-              <img src="../img/img5.jpg" alt="" />
-            </div>
-
-            <div class="fact">
-              <img src="../img/img2.jpg" alt="" />
-            </div>
-
-            <div class="fact">
-              <img src="../img/img2.jpg" alt="" />
-            </div>
-
-            <div class="fact">
               <img src="../img/img3.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img4.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img2.jpg" alt="" />
+            </div>
+
+            <div class="fact">
+              <img src="../img/img5.jpg" alt="" />
             </div>
 
             <div class="fact">
@@ -64,8 +62,7 @@
         </div>
       </div>
     </div>
-</div>
-
+  </div>
 <section class="pricing-tables">
     <div class="container">
         <div class="row">
@@ -84,7 +81,7 @@
                     </tr>
             @endif
             <div class="row">
-                @foreach ($courses as $key => $course)
+                <!-- @foreach ($courses as $key => $course)
                     @if($course->status == 1)
                         <div class="col-md-4">
                             <div class="table-item">
@@ -99,61 +96,42 @@
                             </div>
                         </div>
                     @endif
-                @endforeach
+                @endforeach -->
+                    @foreach ($courses as $key => $course)
+                        @if($course->status == 1)
+                        <div class="col-md-4">
+                            <div class="table-item">
+                                <div class="content-top">
+                                    <img src="img/course.jpg" class="course-img">
+                                    <div class="course-reg">
+                                        <a href="/home/register/{{$course->id}}" class="btn-reg btn btn-lg btn-secondary" role="button"><span><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp Đăng ký</a>
+                                    </div>
+                                </div>
+                                <div class="content-bot">
+                                    <ul class="text-left">
+                                        <li>Khóa học: <br><b>{{$course->name}}</b></li>
+                                    </ul>
+                                    <div class="row course-info">
+                                        <div class="col-xl-6 col-md-6 col-12 left-info justify-content-start">
+                                            Địa điểm: <br>{{$course->location}}
+                                        </div>
+                                        <div class="col-xl-6 col-md-6 col-12 right-info justify-content-end">
+                                            Trạng thái: <br>Active
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
             </div>
         </div>
     </div>
 </section>
-<br><br><br>
-  
+<br>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>Tại sao chọn chúng tôi</h1>      
-    <p>Những khóa tập huấn của chúng tôi cung cấp những kiến thức đầy đủ nhất với phương pháp học tập đơn giản nhưng hiệu quả giúp học viên dễ dàng tiếp thu và đạt được kết quả tốt nhất.</p>
-  </div> 
 
-</div>
-
-<section class="our-blog">
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col">
-                <div class="card">
-                    <img src="../img/img7.jpg" alt="">
-                    <div class="card-body" align="center">
-                        <h5 class="card-title">
-                            <a href="#">Kiến thức chọn lọc</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <img src="../img/img8.jpg" alt="">
-                    <div class="card-body" align="center">
-                        <h5 class="card-title">
-                            <a href="#">Khóa học đa dạng</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <img src="../img/img9.jpg" alt="">
-                    <div class="card-body" align="center">
-                        <h5 class="card-title">
-                            <a href="#">Hiệu quả rõ ràng</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+        
 <script>
     $("#registerModal").on('show.bs.modal', function (e) {
         $("#loginModal").modal("hide");
@@ -193,6 +171,5 @@
             }
         ]
         });
-        
 </script>
 @endsection
