@@ -100,7 +100,14 @@
                                         </div>
                                         <!-- role -->
                                         <div class="form-group"><label class="form-label control-label">Vai trò</label>
-                                            <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Vai trò " maxlength="200"></div>
+                                            <select class="custom-select" name="role">
+                                                <option value="1">Quản trị hệ thống</option>
+                                                <option value="2">Quản lý</option>
+                                                <option value="3">Giáo viên</option>
+                                                <option value="4" selected>Học viên</option>
+
+                                            </select>
+                                            <!-- <div class="form-wrap"><input id="" name="role" class="form-control" type="text" placeholder="Vai trò " maxlength="200"></div> -->
                                         </div>
                                         <!-- position -->
                                         <div class="form-group"><label class="form-label control-label">Chức vụ</label>
